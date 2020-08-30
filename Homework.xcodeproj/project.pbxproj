@@ -3,10 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B25C20E224ED4769009F7AD4 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B25C20E124ED4769009F7AD4 /* DatabaseManager.m */; };
+		B25C20E624ED496A009F7AD4 /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B25C20E524ED496A009F7AD4 /* AppManager.m */; };
+		B25C20E924EE3B2B009F7AD4 /* SubjectTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B25C20E824EE3B2B009F7AD4 /* SubjectTableView.m */; };
+		B25C20EE24EE3BF6009F7AD4 /* SubjectTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B25C20EC24EE3BF6009F7AD4 /* SubjectTVCell.m */; };
+		B25C20EF24EE3BF6009F7AD4 /* SubjectTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25C20ED24EE3BF6009F7AD4 /* SubjectTVCell.xib */; };
+		B25C20F524F0F27F009F7AD4 /* MissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25C20F324F0F27F009F7AD4 /* MissionViewController.m */; };
+		B25C20F624F0F27F009F7AD4 /* MissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25C20F424F0F27F009F7AD4 /* MissionViewController.xib */; };
+		B25C20FA24F0F5F4009F7AD4 /* MissionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B25C20F824F0F5F4009F7AD4 /* MissionTableViewCell.m */; };
+		B25C20FB24F0F5F4009F7AD4 /* MissionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25C20F924F0F5F4009F7AD4 /* MissionTableViewCell.xib */; };
+		B25C20FF24F0FCE1009F7AD4 /* MissionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25C20FD24F0FCE1009F7AD4 /* MissionDetailViewController.m */; };
+		B25C210024F0FCE1009F7AD4 /* MissionDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25C20FE24F0FCE1009F7AD4 /* MissionDetailViewController.xib */; };
+		B25C210524F11B61009F7AD4 /* NewSubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25C210324F11B61009F7AD4 /* NewSubjectViewController.m */; };
+		B25C210624F11B61009F7AD4 /* NewSubjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25C210424F11B61009F7AD4 /* NewSubjectViewController.xib */; };
+		B25C210924F11F6B009F7AD4 /* BaseFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B25C210824F11F6B009F7AD4 /* BaseFlowLayout.m */; };
+		B25C210D24F11FF8009F7AD4 /* IconCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B25C210B24F11FF8009F7AD4 /* IconCollectionViewCell.m */; };
+		B25C210E24F11FF8009F7AD4 /* IconCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25C210C24F11FF8009F7AD4 /* IconCollectionViewCell.xib */; };
 		B25C5E5B24EB9F22000D2AC5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B25C5E5A24EB9F22000D2AC5 /* AppDelegate.m */; };
 		B25C5E5E24EB9F22000D2AC5 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B25C5E5D24EB9F22000D2AC5 /* SceneDelegate.m */; };
 		B25C5E6124EB9F22000D2AC5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25C5E6024EB9F22000D2AC5 /* ViewController.m */; };
@@ -14,10 +30,50 @@
 		B25C5E6624EB9F27000D2AC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B25C5E6524EB9F27000D2AC5 /* Assets.xcassets */; };
 		B25C5E6924EB9F27000D2AC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25C5E6724EB9F27000D2AC5 /* LaunchScreen.storyboard */; };
 		B25C5E6C24EB9F27000D2AC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B25C5E6B24EB9F27000D2AC5 /* main.m */; };
+		B25C5E7424ECE58B000D2AC5 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25C5E7324ECE58B000D2AC5 /* MainViewController.m */; };
+		B293EB0824F16BEC00E395A6 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B293EB0624F16BEC00E395A6 /* SettingViewController.m */; };
+		B293EB0924F16BEC00E395A6 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B293EB0724F16BEC00E395A6 /* SettingViewController.xib */; };
+		B293EB0D24F16D6F00E395A6 /* BackgroundVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B293EB0B24F16D6F00E395A6 /* BackgroundVC.m */; };
+		B293EB0E24F16D6F00E395A6 /* BackgroundVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B293EB0C24F16D6F00E395A6 /* BackgroundVC.xib */; };
+		B293EB1224F16E9000E395A6 /* BackgoundCViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B293EB1024F16E9000E395A6 /* BackgoundCViewCell.m */; };
+		B293EB1324F16E9000E395A6 /* BackgoundCViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B293EB1124F16E9000E395A6 /* BackgoundCViewCell.xib */; };
+		B293EB1724F2ADC000E395A6 /* CollectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B293EB1524F2ADC000E395A6 /* CollectionHeader.m */; };
+		B293EB1824F2ADC000E395A6 /* CollectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B293EB1624F2ADC000E395A6 /* CollectionHeader.xib */; };
+		B293EB1D24FB574D00E395A6 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B293EB1C24FB574D00E395A6 /* MainViewController.xib */; };
+		F2B8FFAD9C9E896574CD9691 /* Pods_Homework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3618B05E8EA5EFD8F7BC22 /* Pods_Homework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B25C5E5624EB9F22000D2AC5 /* Homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6E35958FB3FDA35DF461822 /* Pods-Homework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homework.release.xcconfig"; path = "Target Support Files/Pods-Homework/Pods-Homework.release.xcconfig"; sourceTree = "<group>"; };
+		AA3618B05E8EA5EFD8F7BC22 /* Pods_Homework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Homework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B25C20E024ED4769009F7AD4 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
+		B25C20E124ED4769009F7AD4 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
+		B25C20E424ED496A009F7AD4 /* AppManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppManager.h; sourceTree = "<group>"; };
+		B25C20E524ED496A009F7AD4 /* AppManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppManager.m; sourceTree = "<group>"; };
+		B25C20E724EE3B2B009F7AD4 /* SubjectTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubjectTableView.h; sourceTree = "<group>"; };
+		B25C20E824EE3B2B009F7AD4 /* SubjectTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubjectTableView.m; sourceTree = "<group>"; };
+		B25C20EB24EE3BF6009F7AD4 /* SubjectTVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubjectTVCell.h; sourceTree = "<group>"; };
+		B25C20EC24EE3BF6009F7AD4 /* SubjectTVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubjectTVCell.m; sourceTree = "<group>"; };
+		B25C20ED24EE3BF6009F7AD4 /* SubjectTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubjectTVCell.xib; sourceTree = "<group>"; };
+		B25C20F024F0F01D009F7AD4 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		B25C20F224F0F27F009F7AD4 /* MissionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MissionViewController.h; sourceTree = "<group>"; };
+		B25C20F324F0F27F009F7AD4 /* MissionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MissionViewController.m; sourceTree = "<group>"; };
+		B25C20F424F0F27F009F7AD4 /* MissionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MissionViewController.xib; sourceTree = "<group>"; };
+		B25C20F724F0F5F4009F7AD4 /* MissionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MissionTableViewCell.h; sourceTree = "<group>"; };
+		B25C20F824F0F5F4009F7AD4 /* MissionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MissionTableViewCell.m; sourceTree = "<group>"; };
+		B25C20F924F0F5F4009F7AD4 /* MissionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MissionTableViewCell.xib; sourceTree = "<group>"; };
+		B25C20FC24F0FCE1009F7AD4 /* MissionDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MissionDetailViewController.h; sourceTree = "<group>"; };
+		B25C20FD24F0FCE1009F7AD4 /* MissionDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MissionDetailViewController.m; sourceTree = "<group>"; };
+		B25C20FE24F0FCE1009F7AD4 /* MissionDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MissionDetailViewController.xib; sourceTree = "<group>"; };
+		B25C210224F11B61009F7AD4 /* NewSubjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewSubjectViewController.h; sourceTree = "<group>"; };
+		B25C210324F11B61009F7AD4 /* NewSubjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewSubjectViewController.m; sourceTree = "<group>"; };
+		B25C210424F11B61009F7AD4 /* NewSubjectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewSubjectViewController.xib; sourceTree = "<group>"; };
+		B25C210724F11F6B009F7AD4 /* BaseFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseFlowLayout.h; sourceTree = "<group>"; };
+		B25C210824F11F6B009F7AD4 /* BaseFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseFlowLayout.m; sourceTree = "<group>"; };
+		B25C210A24F11FF8009F7AD4 /* IconCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IconCollectionViewCell.h; sourceTree = "<group>"; };
+		B25C210B24F11FF8009F7AD4 /* IconCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IconCollectionViewCell.m; sourceTree = "<group>"; };
+		B25C210C24F11FF8009F7AD4 /* IconCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconCollectionViewCell.xib; sourceTree = "<group>"; };
+		B25C5E5624EB9F22000D2AC5 /* Duelendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Duelendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B25C5E5924EB9F22000D2AC5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B25C5E5A24EB9F22000D2AC5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B25C5E5C24EB9F22000D2AC5 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
@@ -29,6 +85,22 @@
 		B25C5E6824EB9F27000D2AC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B25C5E6A24EB9F27000D2AC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B25C5E6B24EB9F27000D2AC5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B25C5E7224ECE58B000D2AC5 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		B25C5E7324ECE58B000D2AC5 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		B293EB0524F16BEC00E395A6 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		B293EB0624F16BEC00E395A6 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		B293EB0724F16BEC00E395A6 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		B293EB0A24F16D6F00E395A6 /* BackgroundVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundVC.h; sourceTree = "<group>"; };
+		B293EB0B24F16D6F00E395A6 /* BackgroundVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackgroundVC.m; sourceTree = "<group>"; };
+		B293EB0C24F16D6F00E395A6 /* BackgroundVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundVC.xib; sourceTree = "<group>"; };
+		B293EB0F24F16E9000E395A6 /* BackgoundCViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgoundCViewCell.h; sourceTree = "<group>"; };
+		B293EB1024F16E9000E395A6 /* BackgoundCViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackgoundCViewCell.m; sourceTree = "<group>"; };
+		B293EB1124F16E9000E395A6 /* BackgoundCViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgoundCViewCell.xib; sourceTree = "<group>"; };
+		B293EB1424F2ADC000E395A6 /* CollectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionHeader.h; sourceTree = "<group>"; };
+		B293EB1524F2ADC000E395A6 /* CollectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionHeader.m; sourceTree = "<group>"; };
+		B293EB1624F2ADC000E395A6 /* CollectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionHeader.xib; sourceTree = "<group>"; };
+		B293EB1C24FB574D00E395A6 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		C25032B638DA50ACE0E06A2F /* Pods-Homework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homework.debug.xcconfig"; path = "Target Support Files/Pods-Homework/Pods-Homework.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,24 +108,123 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2B8FFAD9C9E896574CD9691 /* Pods_Homework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27790936B3CE10F83C7CD4BD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C25032B638DA50ACE0E06A2F /* Pods-Homework.debug.xcconfig */,
+				A6E35958FB3FDA35DF461822 /* Pods-Homework.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9EF67A7173B478B295F7EAFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA3618B05E8EA5EFD8F7BC22 /* Pods_Homework.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B25C20DF24ED474D009F7AD4 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				B25C20E024ED4769009F7AD4 /* DatabaseManager.h */,
+				B25C20E124ED4769009F7AD4 /* DatabaseManager.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		B25C20E324ED491D009F7AD4 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				B25C20E424ED496A009F7AD4 /* AppManager.h */,
+				B25C20E524ED496A009F7AD4 /* AppManager.m */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
+		B25C20EA24EE3BD0009F7AD4 /* Subject */ = {
+			isa = PBXGroup;
+			children = (
+				B25C20E724EE3B2B009F7AD4 /* SubjectTableView.h */,
+				B25C20E824EE3B2B009F7AD4 /* SubjectTableView.m */,
+				B25C20EB24EE3BF6009F7AD4 /* SubjectTVCell.h */,
+				B25C20EC24EE3BF6009F7AD4 /* SubjectTVCell.m */,
+				B25C20ED24EE3BF6009F7AD4 /* SubjectTVCell.xib */,
+				B25C210124F11B34009F7AD4 /* NewSubject */,
+			);
+			path = Subject;
+			sourceTree = "<group>";
+		};
+		B25C20F124F0F244009F7AD4 /* Mission */ = {
+			isa = PBXGroup;
+			children = (
+				B25C20F224F0F27F009F7AD4 /* MissionViewController.h */,
+				B25C20F324F0F27F009F7AD4 /* MissionViewController.m */,
+				B25C20F424F0F27F009F7AD4 /* MissionViewController.xib */,
+				B25C20F724F0F5F4009F7AD4 /* MissionTableViewCell.h */,
+				B25C20F824F0F5F4009F7AD4 /* MissionTableViewCell.m */,
+				B25C20F924F0F5F4009F7AD4 /* MissionTableViewCell.xib */,
+				B25C20FC24F0FCE1009F7AD4 /* MissionDetailViewController.h */,
+				B25C20FD24F0FCE1009F7AD4 /* MissionDetailViewController.m */,
+				B25C20FE24F0FCE1009F7AD4 /* MissionDetailViewController.xib */,
+			);
+			path = Mission;
+			sourceTree = "<group>";
+		};
+		B25C210124F11B34009F7AD4 /* NewSubject */ = {
+			isa = PBXGroup;
+			children = (
+				B25C210224F11B61009F7AD4 /* NewSubjectViewController.h */,
+				B25C210324F11B61009F7AD4 /* NewSubjectViewController.m */,
+				B25C210424F11B61009F7AD4 /* NewSubjectViewController.xib */,
+				B25C210A24F11FF8009F7AD4 /* IconCollectionViewCell.h */,
+				B25C210B24F11FF8009F7AD4 /* IconCollectionViewCell.m */,
+				B25C210C24F11FF8009F7AD4 /* IconCollectionViewCell.xib */,
+			);
+			path = NewSubject;
+			sourceTree = "<group>";
+		};
+		B25C210F24F16B44009F7AD4 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				B293EB0524F16BEC00E395A6 /* SettingViewController.h */,
+				B293EB0624F16BEC00E395A6 /* SettingViewController.m */,
+				B293EB0724F16BEC00E395A6 /* SettingViewController.xib */,
+				B293EB0A24F16D6F00E395A6 /* BackgroundVC.h */,
+				B293EB0B24F16D6F00E395A6 /* BackgroundVC.m */,
+				B293EB0C24F16D6F00E395A6 /* BackgroundVC.xib */,
+				B293EB1424F2ADC000E395A6 /* CollectionHeader.h */,
+				B293EB1524F2ADC000E395A6 /* CollectionHeader.m */,
+				B293EB1624F2ADC000E395A6 /* CollectionHeader.xib */,
+				B293EB0F24F16E9000E395A6 /* BackgoundCViewCell.h */,
+				B293EB1024F16E9000E395A6 /* BackgoundCViewCell.m */,
+				B293EB1124F16E9000E395A6 /* BackgoundCViewCell.xib */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		B25C5E4D24EB9F22000D2AC5 = {
 			isa = PBXGroup;
 			children = (
 				B25C5E5824EB9F22000D2AC5 /* Homework */,
 				B25C5E5724EB9F22000D2AC5 /* Products */,
+				27790936B3CE10F83C7CD4BD /* Pods */,
+				9EF67A7173B478B295F7EAFB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		B25C5E5724EB9F22000D2AC5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B25C5E5624EB9F22000D2AC5 /* Homework.app */,
+				B25C5E5624EB9F22000D2AC5 /* Duelendar.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,8 +234,19 @@
 			children = (
 				B25C5E5924EB9F22000D2AC5 /* AppDelegate.h */,
 				B25C5E5A24EB9F22000D2AC5 /* AppDelegate.m */,
+				B25C5E7224ECE58B000D2AC5 /* MainViewController.h */,
+				B25C5E7324ECE58B000D2AC5 /* MainViewController.m */,
+				B293EB1C24FB574D00E395A6 /* MainViewController.xib */,
+				B25C210724F11F6B009F7AD4 /* BaseFlowLayout.h */,
+				B25C210824F11F6B009F7AD4 /* BaseFlowLayout.m */,
+				B25C20DF24ED474D009F7AD4 /* Database */,
+				B25C20E324ED491D009F7AD4 /* Singleton */,
 				B25C5E5C24EB9F22000D2AC5 /* SceneDelegate.h */,
 				B25C5E5D24EB9F22000D2AC5 /* SceneDelegate.m */,
+				B25C20EA24EE3BD0009F7AD4 /* Subject */,
+				B25C20F124F0F244009F7AD4 /* Mission */,
+				B25C210F24F16B44009F7AD4 /* Setting */,
+				B293EB1924F2B96800E395A6 /* Notification */,
 				B25C5E5F24EB9F22000D2AC5 /* ViewController.h */,
 				B25C5E6024EB9F22000D2AC5 /* ViewController.m */,
 				B25C5E6224EB9F22000D2AC5 /* Main.storyboard */,
@@ -72,8 +254,16 @@
 				B25C5E6724EB9F27000D2AC5 /* LaunchScreen.storyboard */,
 				B25C5E6A24EB9F27000D2AC5 /* Info.plist */,
 				B25C5E6B24EB9F27000D2AC5 /* main.m */,
+				B25C20F024F0F01D009F7AD4 /* PrefixHeader.pch */,
 			);
 			path = Homework;
+			sourceTree = "<group>";
+		};
+		B293EB1924F2B96800E395A6 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,9 +273,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B25C5E6F24EB9F27000D2AC5 /* Build configuration list for PBXNativeTarget "Homework" */;
 			buildPhases = (
+				5FD6E57A6F04FDCF3FF5ADAD /* [CP] Check Pods Manifest.lock */,
 				B25C5E5224EB9F22000D2AC5 /* Sources */,
 				B25C5E5324EB9F22000D2AC5 /* Frameworks */,
 				B25C5E5424EB9F22000D2AC5 /* Resources */,
+				CEC959BBC47871B34A22FB4A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -93,7 +285,7 @@
 			);
 			name = Homework;
 			productName = Homework;
-			productReference = B25C5E5624EB9F22000D2AC5 /* Homework.app */;
+			productReference = B25C5E5624EB9F22000D2AC5 /* Duelendar.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -133,23 +325,91 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B25C210E24F11FF8009F7AD4 /* IconCollectionViewCell.xib in Resources */,
+				B293EB0924F16BEC00E395A6 /* SettingViewController.xib in Resources */,
+				B25C20EF24EE3BF6009F7AD4 /* SubjectTVCell.xib in Resources */,
+				B25C210024F0FCE1009F7AD4 /* MissionDetailViewController.xib in Resources */,
+				B25C20F624F0F27F009F7AD4 /* MissionViewController.xib in Resources */,
 				B25C5E6924EB9F27000D2AC5 /* LaunchScreen.storyboard in Resources */,
 				B25C5E6624EB9F27000D2AC5 /* Assets.xcassets in Resources */,
+				B293EB1324F16E9000E395A6 /* BackgoundCViewCell.xib in Resources */,
+				B293EB0E24F16D6F00E395A6 /* BackgroundVC.xib in Resources */,
+				B25C20FB24F0F5F4009F7AD4 /* MissionTableViewCell.xib in Resources */,
+				B293EB1D24FB574D00E395A6 /* MainViewController.xib in Resources */,
+				B25C210624F11B61009F7AD4 /* NewSubjectViewController.xib in Resources */,
+				B293EB1824F2ADC000E395A6 /* CollectionHeader.xib in Resources */,
 				B25C5E6424EB9F22000D2AC5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5FD6E57A6F04FDCF3FF5ADAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Homework-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEC959BBC47871B34A22FB4A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Homework/Pods-Homework-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Homework/Pods-Homework-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Homework/Pods-Homework-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B25C5E5224EB9F22000D2AC5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B25C210924F11F6B009F7AD4 /* BaseFlowLayout.m in Sources */,
+				B293EB1224F16E9000E395A6 /* BackgoundCViewCell.m in Sources */,
+				B25C210524F11B61009F7AD4 /* NewSubjectViewController.m in Sources */,
+				B25C20E924EE3B2B009F7AD4 /* SubjectTableView.m in Sources */,
 				B25C5E6124EB9F22000D2AC5 /* ViewController.m in Sources */,
+				B293EB1724F2ADC000E395A6 /* CollectionHeader.m in Sources */,
 				B25C5E5B24EB9F22000D2AC5 /* AppDelegate.m in Sources */,
+				B25C210D24F11FF8009F7AD4 /* IconCollectionViewCell.m in Sources */,
+				B293EB0D24F16D6F00E395A6 /* BackgroundVC.m in Sources */,
 				B25C5E6C24EB9F27000D2AC5 /* main.m in Sources */,
+				B25C5E7424ECE58B000D2AC5 /* MainViewController.m in Sources */,
+				B25C20FA24F0F5F4009F7AD4 /* MissionTableViewCell.m in Sources */,
+				B25C20F524F0F27F009F7AD4 /* MissionViewController.m in Sources */,
+				B25C20E224ED4769009F7AD4 /* DatabaseManager.m in Sources */,
+				B25C20FF24F0FCE1009F7AD4 /* MissionDetailViewController.m in Sources */,
+				B25C20E624ED496A009F7AD4 /* AppManager.m in Sources */,
+				B25C20EE24EE3BF6009F7AD4 /* SubjectTVCell.m in Sources */,
 				B25C5E5E24EB9F22000D2AC5 /* SceneDelegate.m in Sources */,
+				B293EB0824F16BEC00E395A6 /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,34 +547,40 @@
 		};
 		B25C5E7024EB9F27000D2AC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C25032B638DA50ACE0E06A2F /* Pods-Homework.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58T792ECAK;
+				DEVELOPMENT_TEAM = 39MV8HNPFD;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Homework/PrefixHeader.pch";
 				INFOPLIST_FILE = Homework/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ncy.Homework;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ncy.Homework1;
+				PRODUCT_NAME = Duelendar;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		B25C5E7124EB9F27000D2AC5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6E35958FB3FDA35DF461822 /* Pods-Homework.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58T792ECAK;
+				DEVELOPMENT_TEAM = FMXDNUUU3Y;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Homework/PrefixHeader.pch";
 				INFOPLIST_FILE = Homework/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ncy.Homework;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ncy.Homework1;
+				PRODUCT_NAME = Duelendar;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

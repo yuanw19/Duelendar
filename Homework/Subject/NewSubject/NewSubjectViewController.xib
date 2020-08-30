@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewSubjectViewController">
+            <connections>
+                <outlet property="createButton" destination="J2O-26-42K" id="Inq-mh-yEo"/>
+                <outlet property="subjectIconCV" destination="Eru-jZ-VMf" id="ihq-dm-O59"/>
+                <outlet property="subjectNameTF" destination="OYz-33-3Uy" id="wjc-oR-QfJ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请填写学科名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OYz-33-3Uy">
+                    <rect key="frame" x="20" y="64" width="374" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="gYH-VE-wgh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2O-26-42K">
+                    <rect key="frame" x="20" y="822" width="374" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="gRv-nw-7lQ"/>
+                    </constraints>
+                    <state key="normal" title="创建"/>
+                    <connections>
+                        <action selector="createAction:" destination="-1" eventType="touchUpInside" id="av8-Xb-JZd"/>
+                    </connections>
+                </button>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Eru-jZ-VMf">
+                    <rect key="frame" x="20" y="165" width="374" height="637"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="A41-Bg-rKj">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择学科图标" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akX-xv-0DM">
+                    <rect key="frame" x="20" y="124" width="104" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="OYz-33-3Uy" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="BAQ-4y-zAx"/>
+                <constraint firstItem="Eru-jZ-VMf" firstAttribute="top" secondItem="akX-xv-0DM" secondAttribute="bottom" constant="20" id="Chd-VF-MkY"/>
+                <constraint firstItem="akX-xv-0DM" firstAttribute="top" secondItem="OYz-33-3Uy" secondAttribute="bottom" constant="20" id="ISg-Z1-A7g"/>
+                <constraint firstItem="J2O-26-42K" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="Ldi-2O-kkJ"/>
+                <constraint firstItem="OYz-33-3Uy" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="Ltm-H3-VAF"/>
+                <constraint firstItem="Eru-jZ-VMf" firstAttribute="leading" secondItem="OYz-33-3Uy" secondAttribute="leading" id="TQv-VX-HDQ"/>
+                <constraint firstItem="akX-xv-0DM" firstAttribute="leading" secondItem="OYz-33-3Uy" secondAttribute="leading" id="VzO-Z1-w50"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="J2O-26-42K" secondAttribute="bottom" id="ecl-sV-YAC"/>
+                <constraint firstItem="Eru-jZ-VMf" firstAttribute="trailing" secondItem="OYz-33-3Uy" secondAttribute="trailing" id="gPP-Wx-yIy"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="OYz-33-3Uy" secondAttribute="trailing" constant="20" id="hY5-BC-dUZ"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="J2O-26-42K" secondAttribute="trailing" constant="20" id="lVq-h1-MgQ"/>
+                <constraint firstItem="J2O-26-42K" firstAttribute="top" secondItem="Eru-jZ-VMf" secondAttribute="bottom" constant="20" id="mte-OB-Pj9"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="139" y="123"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,233 @@
+//
+//  PrefixHeader.pch
+//  GStreamerTutorial2
+//
+//  Created by 牛晨雨 on 16/2/15.
+//  Copyright © 2016年 fengsi. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+//#import <AVFoundation/AVFoundation.h>
+//#import <VideoToolbox/VideoToolbox.h>
+#import <UIKit/UIKit.h>
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+//#define KorOrGlo 1 //韩国版本
+//#define KorOrGlo 0 //国际版本
+#define KorOrGlo 2 //高视版本
+//#import "User.h"
+//#import "UserManager.h"
+#ifdef __OBJC__
+/*
+#import <QuartzCore/QuartzCore.h>
+#import <Availability.h>
+#import "FileDataHandle.h"
+#import "JsonRpcClient.h"
+#import "DataServiece.h"
+#import "CommonTool.h"
+#import "GoseeTool.h"
+#import "NSString+GP.h"
+#import "EADControlExecuter.h"
+#import "UMMobClick/MobClick.h"
+#import "MevoSetModel.h"
+#define VERSION 10405
+#define VERSION_APP [[FileDataHandle shareData]formatVersion]
+#define kLivePlayPath @"rtsp://192.168.1.1:8557/2?videoCodecType=H.264"
+//#define APP_PATH      @"https://itunes.apple.com/cn/app/wica-gao-er-fuhd-gao-er-fu/id1042180099?mt=8"
+
+// 服务器地址
+//#define base_url @"http://123.56.185.206:10001/"        //线上测试接口地址接口
+#define base_url @"http://123.56.185.206:8080/" //线上
+//#define base_url @"http://192.168.1.252:8080/"  //测试服务器
+//#define base_url @"http://192.168.1.17:8080/"   //建光电脑
+//#define base_url @"http://192.168.6.103:8080/"  //建光电脑
+
+#define callback_url @"http://wicaapp.sportmoo.com/" // 域名
+//#define callback_url @"http://wicaapp.sportmoo.com:10001/" // 测试域名
+
+// 区分线上线下
+#define OnLine_Status  1 // 带服务器功能
+//#define OnLine_Status  0 // 本地单机版
+*/
+
+//#ifdef DEBUG
+//    #define CYLog(...)  CYLog(__VA_ARGS__)
+//#else
+    #define CYLog(...)
+//#endif
+//define this constant if you want to use Masonry without the 'mas_' prefix
+#define MAS_SHORTHAND
+
+/*
+//define this constant if you want to enable auto-boxing for default syntax
+#define MAS_SHORTHAND_GLOBALS
+#import "Masonry.h"
+#import "SignBaseView.h"
+#import "UIView+ViewController.h"
+#import "UIButton+EnlargeTouchArea.h"
+#import "ProgressView.h"
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "DatabaseManager.h"
+#import "CoachViewController.h"
+#import "DiscoverViewController.h"
+#import "UIImageView+WebCache.h"
+#import "AppDelegate.h"
+#import "BaseNavigationViewController.h"
+#import "MainTabBarController.h"
+#import "BaseModel.h"
+#import "UIViewController+AlertShow.h"
+ */
+#import "AppManager.h"
+
+#define  KScreenWidth   [UIScreen mainScreen].bounds.size.width
+#define  KScreenHeight  [UIScreen mainScreen].bounds.size.height
+#define  DeviceWidth    (([UIScreen mainScreen].bounds.size.width < [UIScreen mainScreen].bounds.size.height) ? [UIScreen mainScreen].bounds.size.width : [UIScreen mainScreen].bounds.size.height)
+#define  DeviceHeight    (([UIScreen mainScreen].bounds.size.width < [UIScreen mainScreen].bounds.size.height) ? [UIScreen mainScreen].bounds.size.height : [UIScreen mainScreen].bounds.size.width)
+
+//电池条、导航栏高度
+#define WD_TopSafe      (DeviceHeight == 812 ? 44 : 0)      // 顶部 safe area 高度
+#define WD_NavBarHeight 44.0                                // NaviBar 高度
+#define WD_TabBarHeight (DeviceHeight == 812 ? 83 : 49)     // 底部 tabbar 高度
+#define WD_TopHeight    (DeviceHeight == 812 ? 88 : 64)     // 整个导航栏高度
+#define WD_bottomSafe   (DeviceHeight == 812 ? 34 : 0)      // 底部 safe area 高度
+
+// 用于适配 iPhone X 页面横竖屏
+#define IPX_OriginX            ((KScreenWidth < KScreenHeight) ? 0 : WD_TopSafe)        // 安全区域原点 X 坐标
+#define IPX_OriginY            ((KScreenWidth < KScreenHeight) ? WD_TopSafe : 0)        // 安全区域原点 Y 坐标
+#define IPX_ScreenWidth        ((KScreenWidth < KScreenHeight) ? KScreenWidth : (KScreenWidth - WD_TopSafe - WD_bottomSafe))   // 安全区域宽度
+#define IPX_ScreenHeight       ((KScreenWidth < KScreenHeight) ? (KScreenHeight - WD_TopSafe - WD_bottomSafe) : KScreenHeight) // 安全区域高度
+
+// 用于适配播放器相关UI
+#define  PL_KScreenWidth   (([UIScreen mainScreen].bounds.size.width == 812) ? (812 - 44 - 34) : [UIScreen mainScreen].bounds.size.width)
+#define  PL_KScreenHeight  (([UIScreen mainScreen].bounds.size.height == 812) ? (812 - 44 - 34) : [UIScreen mainScreen].bounds.size.height)
+#define  PL_DeviceWidth    DeviceWidth
+#define  PL_DeviceHeight   ((DeviceHeight == 812) ? (812 - 44 - 34) : DeviceHeight)
+
+#define REV_DeviceHeight   ((DeviceHeight == 812) ? 667 : DeviceHeight) // review区域的高度(设备长度方向)
+
+// 机型区分
+#define DEVICE_NORMAL_5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define DEVICE_NORMAL_6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+#define DEVICE_PLUS ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
+#define  SysVersionStr    [UIDevice currentDevice].systemVersion
+#define  SysVersionValue  [[[UIDevice currentDevice] systemVersion] floatValue]
+#define  KeyWindow        [UIApplication sharedApplication].keyWindow
+
+#define SDCardPathWithVideo     @"sd/videos"
+#define SDCardPathWithThumbnail @"sd/thumbnails"
+
+
+/** 屏幕适配换算 **/
+#define XY_RV(value) ((value)/375.0f * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 3/4.0 : 1.0) * ([UIScreen mainScreen].bounds.size.width < [UIScreen mainScreen].bounds.size.height ? [UIScreen mainScreen].bounds.size.width :[UIScreen mainScreen].bounds.size.height))
+
+#define EQ_XY(value) ((value) * ([UIScreen mainScreen].bounds.size.width < [UIScreen mainScreen].bounds.size.height ? [UIScreen mainScreen].bounds.size.width :[UIScreen mainScreen].bounds.size.height)/375.0f)
+
+#define FIT_IPHONE5(value)  (value) * (DEVICE_NORMAL_5 ? ([UIScreen mainScreen].bounds.size.width < [UIScreen mainScreen].bounds.size.height ? [UIScreen mainScreen].bounds.size.width :[UIScreen mainScreen].bounds.size.height)/375.0 : 1)
+
+#define FIT_SIZE(value) (value * (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 1.2 : 1))
+
+/** 颜色相关 */
+#define WICAColor(r,g,b)     [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+#define A_WICAColor(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+#define SepLineColor         [UIColor colorWithRed:(0xd8)/255.0f green:(0xd8)/255.0f blue:(0xd8)/255.0f alpha:1]
+
+
+/** 字体相关 */
+#define WICAFont(x) [UIFont systemFontOfSize:(x)]
+#define B_WICAFont(x) [UIFont boldSystemFontOfSize:(x)]
+
+//横竖屏方向
+#define StatusOrientation [[UIApplication sharedApplication] statusBarOrientation]
+
+// 设备方向
+#define DeviceOrientation [[UIDevice currentDevice] orientation]
+
+// userDefault
+#define UserDefaultSetObjectForKey(VALUE, KEY)  [[NSUserDefaults standardUserDefaults] setObject:VALUE forKey:KEY]
+#define UserDefaultObjectForKey(KEY)            [[NSUserDefaults standardUserDefaults] objectForKey:KEY]
+#define UserDefaultSetBoolForKey(VALUE, KEY)    [[NSUserDefaults standardUserDefaults] setBool:VALUE forKey:KEY]
+#define UserDefaultBoolForKey(KEY)              [[NSUserDefaults standardUserDefaults] boolForKey:KEY]
+#define UserDefaultRemoveObjectForKey(KEY)      [[NSUserDefaults standardUserDefaults] removeObjectForKey:KEY]
+#define USER_DEFAULT                            [NSUserDefaults standardUserDefaults]
+
+/* tag 值*/
+
+// playerViewController
+#define exitImageView_tag     191
+#define recordButton_tag      192
+#define btnDoubleScreen_tag   193
+#define btn_tool_tag          194
+#define cutButton_tag         195
+#define snapShotImageView_tag 196
+#define btnReSelectVideo_tag  197
+#define lockBtn_tag           198
+#define btnReSelectCompare_tag   199
+#define btn_trace_tag            200
+
+#define penView_tag           1913
+#define colorView_tag         1923
+
+// ColorView
+#define red_tag     1020
+#define blue_tag    1021
+#define yellow_tag  1022
+#define green_tag   1024
+
+// rateControl
+#define rateTag_1      201
+#define rateTag_2      202
+#define rateTag_4      204
+#define rateTag_8      208
+
+#define loginView_tag            2006
+#define signUpView_tag           2007
+#define enterPassView_tag        2008
+#define personInfoView_tag       2009
+#define effectView_tag           2011
+#define coachCertificate_tag     2012
+
+
+#define compareView_tag     666
+
+
+// 注册、登录
+#define signStepOne_tag       2007
+#define maskView_tag             2010
+
+// 导航栏背景颜色
+#define MD_NAVIBAR_COLOR [UIColor colorWithRed:(42)/255.0 green:(144)/255.0 blue:(29)/255.0 alpha:1.0]     // 导航栏背景色
+#define MD_BG_COLOR [UIColor colorWithRed:222.0 / 255.0 green:232.0 / 255.0 blue:225.0 / 255.0 alpha:1.0]
+#define MD_GREEN01_COLOR [UIColor colorWithRed:183.0 / 255.0 green:232.0 / 255.0 blue:105.0 / 255.0 alpha:1.0] // 导航栏下绿线的背景色
+#define MD_GREEN02_COLOR [UIColor colorWithRed:23.0 / 255.0 green:73.0 / 255.0 blue:0.0 / 255.0 alpha:1.0] // 视频库cell组标题背景色
+
+#define MD_BLACK01_COLOR [UIColor colorWithRed:74.0 / 255.0 green:74.0 / 255.0 blue:74.0 / 255.0 alpha:1.0] // cell标题的黑色
+#define MD_BLACK02_COLOR [UIColor colorWithRed:116.0 / 255.0 green:116.0 / 255.0 blue:116.0 / 255.0 alpha:1.0] // cell 副标题的黑 稍浅一些
+#define MD_BALCK03_COLOR [UIColor colorWithRed:146.0 / 255.0 green:146.0 / 255.0 blue:146.0 / 255.0 alpha:1.0] // cell 副标题的黑 更浅一些
+#define MD_BLACK04_COLOR [UIColor colorWithRed:238.0 / 255.0 green:238.0 / 255.0 blue:238.0 / 255.0 alpha:1.0]  // 控制器背景色
+#define MD_BALCK05_COLOR [UIColor colorWithRed:200.0 / 255.0 green:200.0 / 255.0 blue:200.0 / 255.0 alpha:1.0] // cell分割线的黑 浅色
+
+#define MD_RED01_COLOR [UIColor colorWithRed:242.0 / 255.0 green:109.0 / 255.0 blue:125.0 / 255.0 alpha:1.0] // 粉红色
+#define MD_RED02_COLOR [UIColor colorWithRed:251.0 / 255.0 green:60.0 / 255.0 blue:60.0 / 255.0 alpha:1.0] // 大红色
+#define MD_RED03_COLOR [UIColor colorWithRed:424.0 / 255.0 green:109.0 / 255.0 blue:125.0 / 255.0 alpha:1.0] // 拒绝按钮的红色
+
+#define timeLableTag    1997
+
+#define LOC(x) NSLocalizedString(x, "")
+
+/** 颜色相关 */
+#define WICAColor(r,g,b)     [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+#define A_WICAColor(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+
+#define JPushID         @"JPush_registrationID"
+#define Pay_Open_Key    @"payEvent_Open_Key"
+
+// 沙盒Document
+#define DOCUMENT_PATH(path) [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:path]
+#endif
+#endif /* PrefixHeader_pch */
