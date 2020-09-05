@@ -15,10 +15,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) DatabaseManager *dbManager;
 @property (nonatomic, strong) NSMutableArray *allSubjectInfo;
 @property (nonatomic, assign) BOOL addSubjectFlag;
+@property (nonatomic, strong) NSArray *colorArr;
+@property (nonatomic, assign) BOOL changeBackgroundImg;
+@property (nonatomic, assign) BOOL changeSchoolName;
+@property (nonatomic, assign) BOOL changeUserAvatar;
+@property (nonatomic, assign) BOOL changeNickname;
+@property (nonatomic, assign) BOOL addNewMission;
+
 + (AppManager *)defualtManager;
 UIColor * RGB (CGFloat r, CGFloat g, CGFloat b, CGFloat a);
 - (BOOL)addNewSubject:(NSDictionary *)info;
 - (BOOL)checkSubjectNameValid:(NSString *)name;
+- (void)sendLocalNotification:(NSInteger)timeInternal missionInfo:(NSDictionary *)info;
 @end
 
 NS_ASSUME_NONNULL_END

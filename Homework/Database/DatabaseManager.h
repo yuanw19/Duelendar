@@ -84,7 +84,7 @@ extern NSString * const CryptoDBPath;
  *  查询数据 限制数据条数10
  *
  *  @param table     表名
- *  @param keyValues 查询字段以及对应字段类型 字典
+ *  @param keyTypes 查询字段以及对应字段类型 字典
  *
  *  @return 查询结果字典数组
  */
@@ -94,7 +94,7 @@ extern NSString * const CryptoDBPath;
  *  条件查询表中的数据 限制数据条数10
  *
  *  @param table     表名
- *  @param keyValues 查询字段以及对应字段类型 字典
+ *  @param keyTypes 查询字段以及对应字段类型 字典
  *  @param condition 条件
  *
  *  @return 查询结果字典数组
@@ -105,7 +105,7 @@ extern NSString * const CryptoDBPath;
  *  模糊查询 某字段以指定字符串开头的数据 限制数据条数10
  *
  *  @param table     表名
- *  @param keyValues 查询字段以及对应字段类型 字典
+ *  @param keyTypes 查询字段以及对应字段类型 字典
  *  @param key       条件字段
  *  @param str       开头字符串
  *
@@ -117,7 +117,7 @@ extern NSString * const CryptoDBPath;
  *  模糊查询 某字段包含指定字符串的数据 限制数据条数10
  *
  *  @param table     表名
- *  @param keyValues 查询字段以及对应字段类型 字典
+ *  @param keyTypes 查询字段以及对应字段类型 字典
  *  @param key       条件字段
  *  @param str       包含字符串
  *
@@ -129,7 +129,7 @@ extern NSString * const CryptoDBPath;
  *  模糊查询 某字段以指定字符串结尾的数据 限制数据条数10
  *
  *  @param table     表名
- *  @param keyValues 查询字段以及对应字段类型 字典
+ *  @param keyTypes 查询字段以及对应字段类型 字典
  *  @param key       条件字段
  *  @param str       结尾字符串
  *

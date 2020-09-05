@@ -9,9 +9,15 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+typedef enum ShowState {
+    ShowState_create,
+    ShowState_edit,
+    ShowState_view
+}ShowState;
 @interface MissionDetailViewController : UIViewController
 @property (nonatomic, strong) NSString *subjectName;
+@property (nonatomic, assign) ShowState showState;
+@property (nonatomic, strong) NSDictionary *missionInfo;
 @end
 
 NS_ASSUME_NONNULL_END

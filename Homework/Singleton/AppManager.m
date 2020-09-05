@@ -28,7 +28,7 @@ NSString * const TABLE_NAME = @"Subject";
     if (self = [super init]) {
         [self initDatabase];
         [self selectSubjectList];
-        [self sendLocalNotification];
+        _colorArr = @[RGB(255, 0, 73, 1),RGB(44, 112, 255, 1),RGB(255, 195, 0, 1),RGB(170, 44, 246, 1),RGB(0, 190, 68, 1)];
     }
     return self;
 }
@@ -36,12 +36,12 @@ NSString * const TABLE_NAME = @"Subject";
 - (void)initDatabase {
     _dbManager = [[DatabaseManager alloc] init];
     [_dbManager DatabaseWithDBName: DB_NAME];
-    NSDictionary *tableKeys = @{@"name": @0, @"icon": @2, @"createTime": @3};
+    NSDictionary *tableKeys = @{@"name": @0, @"icon": @2, @"iconUndertone": @1, @"createTime": @3};
     [_dbManager createPathTable: TABLE_NAME WithKey: tableKeys];
 }
 
 - (void)selectSubjectList {
-    NSArray *SDArr = [_dbManager selectAllInTable:TABLE_NAME WithKey:@{@"name": @0, @"icon": @2, @"createTime": @3}];
+    NSArray *SDArr = [_dbManager selectAllInTable:TABLE_NAME WithKey:@{@"name": @0, @"icon": @2, @"iconUndertone": @1, @"createTime": @3}];
     _allSubjectInfo = SDArr.mutableCopy;
     NSLog(@"%@",SDArr);
 }
@@ -67,16 +67,13 @@ NSString * const TABLE_NAME = @"Subject";
 }
 
 // Notification
-- (void)sendLocalNotification {
+- (void)sendLocalNotification:(NSInteger)timeInternal missionInfo:(NSDictionary *)info {
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
     [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     
-    NSString *title = @"通知-title";
-    NSString *subtitle = @"通知-subtitle";
-    NSString *body = @"通知-body";
-    NSInteger badge = 1;
-    NSInteger timeInteval = 6;
-    NSDictionary *userInfo = @{@"id":@"LOCAL_NOTIFY_SCHEDULE_ID"};
+    NSString *title = info[@"name"];
+    NSString *subtitle = info[@"info"];
+    NSDictionary *userInfo = @{@"ID":info[@"ID"]};
     
     if (@available(iOS 10.0, *)) {
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
@@ -84,17 +81,16 @@ NSString * const TABLE_NAME = @"Subject";
             if(granted) {
                 // 1.创建通知内容
                 UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
-                //        [content setValue:@(YES) forKeyPath:@"shouldAlwaysAlertWhileAppIsForeground"];
                 content.sound = [UNNotificationSound defaultSound];
                 content.title = title;
                 content.subtitle = subtitle;
-                content.body = body;
-                content.badge = @(badge);
+//                content.body = body;
+//                content.badge = @(badge);
     
                 content.userInfo = userInfo;
                 
                 // 3.触发模式
-                UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:timeInteval repeats:NO];
+                UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:timeInternal repeats:NO];
                 
                 NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
                 int value = [[userDef objectForKey:@"notification"] intValue];

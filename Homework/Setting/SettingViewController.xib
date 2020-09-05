@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingViewController">
             <connections>
+                <outlet property="iconBgView" destination="rWH-4o-0GE" id="q9L-9j-bWQ"/>
+                <outlet property="iconImgView" destination="nmG-WX-BtG" id="YFU-Fa-r2c"/>
+                <outlet property="settingTV" destination="TAR-f2-Yxi" id="rCq-Qv-tBu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,38 +21,51 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HnL-n5-qbb">
-                    <rect key="frame" x="20" y="64" width="374" height="40"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWH-4o-0GE">
+                    <rect key="frame" x="166" y="64" width="82" height="82"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nmG-WX-BtG">
+                            <rect key="frame" x="1" y="1" width="80" height="80"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="9B8-GB-Nwn"/>
+                        <constraint firstAttribute="bottom" secondItem="nmG-WX-BtG" secondAttribute="bottom" constant="1" id="77V-uy-opJ"/>
+                        <constraint firstItem="nmG-WX-BtG" firstAttribute="leading" secondItem="rWH-4o-0GE" secondAttribute="leading" constant="1" id="Eoe-NR-Li4"/>
+                        <constraint firstAttribute="width" secondItem="rWH-4o-0GE" secondAttribute="height" multiplier="1:1" id="RWh-gR-2qg"/>
+                        <constraint firstItem="nmG-WX-BtG" firstAttribute="top" secondItem="rWH-4o-0GE" secondAttribute="top" constant="1" id="Tke-KN-m2I"/>
+                        <constraint firstAttribute="width" constant="82" id="aqO-Jy-3tZ"/>
+                        <constraint firstAttribute="trailing" secondItem="nmG-WX-BtG" secondAttribute="trailing" constant="1" id="nHb-Qb-4Uf"/>
                     </constraints>
-                    <state key="normal" title="更改大学时区"/>
-                    <connections>
-                        <action selector="setupTimeZone:" destination="-1" eventType="touchUpInside" id="7Sc-wL-giU"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3v-na-cIZ">
-                    <rect key="frame" x="20" y="124" width="374" height="40"/>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit" translatesAutoresizingMaskIntoConstraints="NO" id="fEN-xn-Lqg">
+                    <rect key="frame" x="218" y="116" width="30" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="bDL-xf-M6o"/>
+                        <constraint firstAttribute="width" secondItem="fEN-xn-Lqg" secondAttribute="height" multiplier="1:1" id="A1Y-Sd-KpW"/>
+                        <constraint firstAttribute="width" constant="30" id="EKM-q4-BY3"/>
                     </constraints>
-                    <state key="normal" title="更改界面背景图"/>
-                    <connections>
-                        <action selector="setBGView:" destination="-1" eventType="touchUpInside" id="bx0-au-Adb"/>
-                    </connections>
-                </button>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TAR-f2-Yxi">
+                    <rect key="frame" x="0.0" y="161" width="414" height="701"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="Q3v-na-cIZ" firstAttribute="leading" secondItem="HnL-n5-qbb" secondAttribute="leading" id="FNK-fN-on1"/>
-                <constraint firstItem="Q3v-na-cIZ" firstAttribute="trailing" secondItem="HnL-n5-qbb" secondAttribute="trailing" id="Iz5-x0-zaC"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="HnL-n5-qbb" secondAttribute="trailing" constant="20" id="nec-gB-w75"/>
-                <constraint firstItem="Q3v-na-cIZ" firstAttribute="top" secondItem="HnL-n5-qbb" secondAttribute="bottom" constant="20" id="qbn-gV-UKq"/>
-                <constraint firstItem="HnL-n5-qbb" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="vAF-Eu-LiK"/>
-                <constraint firstItem="HnL-n5-qbb" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="wnH-xd-kTg"/>
+                <constraint firstItem="rWH-4o-0GE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0dR-co-ePz"/>
+                <constraint firstItem="TAR-f2-Yxi" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="1ct-Yq-js5"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="TAR-f2-Yxi" secondAttribute="trailing" id="5dF-sr-Pl2"/>
+                <constraint firstItem="fEN-xn-Lqg" firstAttribute="bottom" secondItem="rWH-4o-0GE" secondAttribute="bottom" id="B4l-mx-APd"/>
+                <constraint firstItem="fEN-xn-Lqg" firstAttribute="trailing" secondItem="rWH-4o-0GE" secondAttribute="trailing" id="gZX-CX-iQr"/>
+                <constraint firstItem="rWH-4o-0GE" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="mBK-Eb-GG6"/>
+                <constraint firstItem="TAR-f2-Yxi" firstAttribute="top" secondItem="rWH-4o-0GE" secondAttribute="bottom" constant="15" id="obV-Io-2mi"/>
+                <constraint firstItem="TAR-f2-Yxi" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="p3l-TN-KjE"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="139" y="95"/>
         </view>
     </objects>
+    <resources>
+        <image name="edit" width="80" height="80"/>
+    </resources>
 </document>

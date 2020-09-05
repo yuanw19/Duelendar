@@ -30,7 +30,6 @@
 		B25C5E6624EB9F27000D2AC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B25C5E6524EB9F27000D2AC5 /* Assets.xcassets */; };
 		B25C5E6924EB9F27000D2AC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25C5E6724EB9F27000D2AC5 /* LaunchScreen.storyboard */; };
 		B25C5E6C24EB9F27000D2AC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B25C5E6B24EB9F27000D2AC5 /* main.m */; };
-		B25C5E7424ECE58B000D2AC5 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25C5E7324ECE58B000D2AC5 /* MainViewController.m */; };
 		B293EB0824F16BEC00E395A6 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B293EB0624F16BEC00E395A6 /* SettingViewController.m */; };
 		B293EB0924F16BEC00E395A6 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B293EB0724F16BEC00E395A6 /* SettingViewController.xib */; };
 		B293EB0D24F16D6F00E395A6 /* BackgroundVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B293EB0B24F16D6F00E395A6 /* BackgroundVC.m */; };
@@ -39,7 +38,16 @@
 		B293EB1324F16E9000E395A6 /* BackgoundCViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B293EB1124F16E9000E395A6 /* BackgoundCViewCell.xib */; };
 		B293EB1724F2ADC000E395A6 /* CollectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B293EB1524F2ADC000E395A6 /* CollectionHeader.m */; };
 		B293EB1824F2ADC000E395A6 /* CollectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B293EB1624F2ADC000E395A6 /* CollectionHeader.xib */; };
-		B293EB1D24FB574D00E395A6 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B293EB1C24FB574D00E395A6 /* MainViewController.xib */; };
+		B293EB2124FB586600E395A6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B293EB1F24FB586600E395A6 /* MainViewController.m */; };
+		B293EB2224FB586600E395A6 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B293EB2024FB586600E395A6 /* MainViewController.xib */; };
+		B293EB2524FBB68B00E395A6 /* UIButton+EnlargeTouchArea.m in Sources */ = {isa = PBXBuildFile; fileRef = B293EB2424FBB68B00E395A6 /* UIButton+EnlargeTouchArea.m */; };
+		B293EB2924FBC3DA00E395A6 /* SettingTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B293EB2724FBC3DA00E395A6 /* SettingTVCell.m */; };
+		B293EB2A24FBC3DA00E395A6 /* SettingTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B293EB2824FBC3DA00E395A6 /* SettingTVCell.xib */; };
+		B293EB352503341500E395A6 /* SchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B293EB332503341500E395A6 /* SchoolViewController.m */; };
+		B293EB362503341500E395A6 /* SchoolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B293EB342503341500E395A6 /* SchoolViewController.xib */; };
+		B293EB38250334E000E395A6 /* SchoolList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B293EB37250334E000E395A6 /* SchoolList.plist */; };
+		B293EB3C2503390800E395A6 /* SchoolTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B293EB3A2503390800E395A6 /* SchoolTableViewCell.m */; };
+		B293EB3D2503390800E395A6 /* SchoolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B293EB3B2503390800E395A6 /* SchoolTableViewCell.xib */; };
 		F2B8FFAD9C9E896574CD9691 /* Pods_Homework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3618B05E8EA5EFD8F7BC22 /* Pods_Homework.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,8 +93,6 @@
 		B25C5E6824EB9F27000D2AC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B25C5E6A24EB9F27000D2AC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B25C5E6B24EB9F27000D2AC5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B25C5E7224ECE58B000D2AC5 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		B25C5E7324ECE58B000D2AC5 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		B293EB0524F16BEC00E395A6 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		B293EB0624F16BEC00E395A6 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		B293EB0724F16BEC00E395A6 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
@@ -99,7 +105,21 @@
 		B293EB1424F2ADC000E395A6 /* CollectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionHeader.h; sourceTree = "<group>"; };
 		B293EB1524F2ADC000E395A6 /* CollectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionHeader.m; sourceTree = "<group>"; };
 		B293EB1624F2ADC000E395A6 /* CollectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionHeader.xib; sourceTree = "<group>"; };
-		B293EB1C24FB574D00E395A6 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		B293EB1E24FB586600E395A6 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		B293EB1F24FB586600E395A6 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		B293EB2024FB586600E395A6 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		B293EB2324FBB68B00E395A6 /* UIButton+EnlargeTouchArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EnlargeTouchArea.h"; sourceTree = "<group>"; };
+		B293EB2424FBB68B00E395A6 /* UIButton+EnlargeTouchArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EnlargeTouchArea.m"; sourceTree = "<group>"; };
+		B293EB2624FBC3DA00E395A6 /* SettingTVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTVCell.h; sourceTree = "<group>"; };
+		B293EB2724FBC3DA00E395A6 /* SettingTVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTVCell.m; sourceTree = "<group>"; };
+		B293EB2824FBC3DA00E395A6 /* SettingTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTVCell.xib; sourceTree = "<group>"; };
+		B293EB322503341500E395A6 /* SchoolViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolViewController.h; sourceTree = "<group>"; };
+		B293EB332503341500E395A6 /* SchoolViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolViewController.m; sourceTree = "<group>"; };
+		B293EB342503341500E395A6 /* SchoolViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchoolViewController.xib; sourceTree = "<group>"; };
+		B293EB37250334E000E395A6 /* SchoolList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SchoolList.plist; sourceTree = "<group>"; };
+		B293EB392503390800E395A6 /* SchoolTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolTableViewCell.h; sourceTree = "<group>"; };
+		B293EB3A2503390800E395A6 /* SchoolTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolTableViewCell.m; sourceTree = "<group>"; };
+		B293EB3B2503390800E395A6 /* SchoolTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchoolTableViewCell.xib; sourceTree = "<group>"; };
 		C25032B638DA50ACE0E06A2F /* Pods-Homework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homework.debug.xcconfig"; path = "Target Support Files/Pods-Homework/Pods-Homework.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,15 +218,11 @@
 				B293EB0524F16BEC00E395A6 /* SettingViewController.h */,
 				B293EB0624F16BEC00E395A6 /* SettingViewController.m */,
 				B293EB0724F16BEC00E395A6 /* SettingViewController.xib */,
-				B293EB0A24F16D6F00E395A6 /* BackgroundVC.h */,
-				B293EB0B24F16D6F00E395A6 /* BackgroundVC.m */,
-				B293EB0C24F16D6F00E395A6 /* BackgroundVC.xib */,
-				B293EB1424F2ADC000E395A6 /* CollectionHeader.h */,
-				B293EB1524F2ADC000E395A6 /* CollectionHeader.m */,
-				B293EB1624F2ADC000E395A6 /* CollectionHeader.xib */,
-				B293EB0F24F16E9000E395A6 /* BackgoundCViewCell.h */,
-				B293EB1024F16E9000E395A6 /* BackgoundCViewCell.m */,
-				B293EB1124F16E9000E395A6 /* BackgoundCViewCell.xib */,
+				B293EB2624FBC3DA00E395A6 /* SettingTVCell.h */,
+				B293EB2724FBC3DA00E395A6 /* SettingTVCell.m */,
+				B293EB2824FBC3DA00E395A6 /* SettingTVCell.xib */,
+				B293EB2B2503332F00E395A6 /* Background */,
+				B293EB2C2503336100E395A6 /* School */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -234,9 +250,11 @@
 			children = (
 				B25C5E5924EB9F22000D2AC5 /* AppDelegate.h */,
 				B25C5E5A24EB9F22000D2AC5 /* AppDelegate.m */,
-				B25C5E7224ECE58B000D2AC5 /* MainViewController.h */,
-				B25C5E7324ECE58B000D2AC5 /* MainViewController.m */,
-				B293EB1C24FB574D00E395A6 /* MainViewController.xib */,
+				B293EB1E24FB586600E395A6 /* MainViewController.h */,
+				B293EB1F24FB586600E395A6 /* MainViewController.m */,
+				B293EB2024FB586600E395A6 /* MainViewController.xib */,
+				B293EB2324FBB68B00E395A6 /* UIButton+EnlargeTouchArea.h */,
+				B293EB2424FBB68B00E395A6 /* UIButton+EnlargeTouchArea.m */,
 				B25C210724F11F6B009F7AD4 /* BaseFlowLayout.h */,
 				B25C210824F11F6B009F7AD4 /* BaseFlowLayout.m */,
 				B25C20DF24ED474D009F7AD4 /* Database */,
@@ -264,6 +282,36 @@
 			children = (
 			);
 			path = Notification;
+			sourceTree = "<group>";
+		};
+		B293EB2B2503332F00E395A6 /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				B293EB0A24F16D6F00E395A6 /* BackgroundVC.h */,
+				B293EB0B24F16D6F00E395A6 /* BackgroundVC.m */,
+				B293EB0C24F16D6F00E395A6 /* BackgroundVC.xib */,
+				B293EB1424F2ADC000E395A6 /* CollectionHeader.h */,
+				B293EB1524F2ADC000E395A6 /* CollectionHeader.m */,
+				B293EB1624F2ADC000E395A6 /* CollectionHeader.xib */,
+				B293EB0F24F16E9000E395A6 /* BackgoundCViewCell.h */,
+				B293EB1024F16E9000E395A6 /* BackgoundCViewCell.m */,
+				B293EB1124F16E9000E395A6 /* BackgoundCViewCell.xib */,
+			);
+			path = Background;
+			sourceTree = "<group>";
+		};
+		B293EB2C2503336100E395A6 /* School */ = {
+			isa = PBXGroup;
+			children = (
+				B293EB37250334E000E395A6 /* SchoolList.plist */,
+				B293EB322503341500E395A6 /* SchoolViewController.h */,
+				B293EB332503341500E395A6 /* SchoolViewController.m */,
+				B293EB342503341500E395A6 /* SchoolViewController.xib */,
+				B293EB392503390800E395A6 /* SchoolTableViewCell.h */,
+				B293EB3A2503390800E395A6 /* SchoolTableViewCell.m */,
+				B293EB3B2503390800E395A6 /* SchoolTableViewCell.xib */,
+			);
+			path = School;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,17 +373,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B293EB362503341500E395A6 /* SchoolViewController.xib in Resources */,
 				B25C210E24F11FF8009F7AD4 /* IconCollectionViewCell.xib in Resources */,
 				B293EB0924F16BEC00E395A6 /* SettingViewController.xib in Resources */,
 				B25C20EF24EE3BF6009F7AD4 /* SubjectTVCell.xib in Resources */,
+				B293EB2A24FBC3DA00E395A6 /* SettingTVCell.xib in Resources */,
 				B25C210024F0FCE1009F7AD4 /* MissionDetailViewController.xib in Resources */,
 				B25C20F624F0F27F009F7AD4 /* MissionViewController.xib in Resources */,
+				B293EB3D2503390800E395A6 /* SchoolTableViewCell.xib in Resources */,
+				B293EB2224FB586600E395A6 /* MainViewController.xib in Resources */,
 				B25C5E6924EB9F27000D2AC5 /* LaunchScreen.storyboard in Resources */,
 				B25C5E6624EB9F27000D2AC5 /* Assets.xcassets in Resources */,
 				B293EB1324F16E9000E395A6 /* BackgoundCViewCell.xib in Resources */,
 				B293EB0E24F16D6F00E395A6 /* BackgroundVC.xib in Resources */,
 				B25C20FB24F0F5F4009F7AD4 /* MissionTableViewCell.xib in Resources */,
-				B293EB1D24FB574D00E395A6 /* MainViewController.xib in Resources */,
+				B293EB38250334E000E395A6 /* SchoolList.plist in Resources */,
 				B25C210624F11B61009F7AD4 /* NewSubjectViewController.xib in Resources */,
 				B293EB1824F2ADC000E395A6 /* CollectionHeader.xib in Resources */,
 				B25C5E6424EB9F22000D2AC5 /* Main.storyboard in Resources */,
@@ -397,17 +449,21 @@
 				B25C20E924EE3B2B009F7AD4 /* SubjectTableView.m in Sources */,
 				B25C5E6124EB9F22000D2AC5 /* ViewController.m in Sources */,
 				B293EB1724F2ADC000E395A6 /* CollectionHeader.m in Sources */,
+				B293EB2124FB586600E395A6 /* MainViewController.m in Sources */,
 				B25C5E5B24EB9F22000D2AC5 /* AppDelegate.m in Sources */,
 				B25C210D24F11FF8009F7AD4 /* IconCollectionViewCell.m in Sources */,
 				B293EB0D24F16D6F00E395A6 /* BackgroundVC.m in Sources */,
 				B25C5E6C24EB9F27000D2AC5 /* main.m in Sources */,
-				B25C5E7424ECE58B000D2AC5 /* MainViewController.m in Sources */,
+				B293EB3C2503390800E395A6 /* SchoolTableViewCell.m in Sources */,
+				B293EB2924FBC3DA00E395A6 /* SettingTVCell.m in Sources */,
 				B25C20FA24F0F5F4009F7AD4 /* MissionTableViewCell.m in Sources */,
 				B25C20F524F0F27F009F7AD4 /* MissionViewController.m in Sources */,
 				B25C20E224ED4769009F7AD4 /* DatabaseManager.m in Sources */,
 				B25C20FF24F0FCE1009F7AD4 /* MissionDetailViewController.m in Sources */,
 				B25C20E624ED496A009F7AD4 /* AppManager.m in Sources */,
 				B25C20EE24EE3BF6009F7AD4 /* SubjectTVCell.m in Sources */,
+				B293EB352503341500E395A6 /* SchoolViewController.m in Sources */,
+				B293EB2524FBB68B00E395A6 /* UIButton+EnlargeTouchArea.m in Sources */,
 				B25C5E5E24EB9F22000D2AC5 /* SceneDelegate.m in Sources */,
 				B293EB0824F16BEC00E395A6 /* SettingViewController.m in Sources */,
 			);

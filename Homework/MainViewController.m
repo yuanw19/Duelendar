@@ -10,11 +10,16 @@
 #import "SubjectTableView.h"
 #import "NewSubjectViewController.h"
 #import "SettingViewController.h"
+#import "UIButton+EnlargeTouchArea.h"
 
-@interface MainViewController () {
-    SubjectTableView *subjectTV;
-}
-@property (nonatomic, strong) UIImageView *bgImgView;
+@interface MainViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *bgImgView;
+@property (weak, nonatomic) IBOutlet UILabel *nicknameL;
+@property (weak, nonatomic) IBOutlet SubjectTableView *subjectTV;
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+@property (weak, nonatomic) IBOutlet UIImageView *schoolLogoImgV;
+@property (weak, nonatomic) IBOutlet UILabel *schoolNameL;
+@property (weak, nonatomic) IBOutlet UIButton *settingButton;
 @end
 
 @implementation MainViewController
@@ -23,29 +28,57 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"Duelendar";
-    self.view.backgroundColor = [UIColor clearColor];
     [self setupNavigationBar];
-    [self setupView];
+    _subjectTV.mainVC = self;
+    [_settingButton setEnlargeEdgeWithTop:15 right:15 bottom:15 left:15];
+    
+    
+    NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+    
+    NSData *imgData = [userDef objectForKey:@"UserAvatar"];
+    _iconView.image = [UIImage imageWithData:imgData];
+    _iconView.layer.masksToBounds = YES;
+    _iconView.layer.cornerRadius = 20;
+    
+    NSString *name = [userDef objectForKey:@"SchoolName"];
+    _schoolNameL.text = name;
+    _schoolLogoImgV.image = [UIImage imageNamed:name];
+    _nicknameL.text = [userDef objectForKey:@"Nickname"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-    if ([[user objectForKey:@"ChangeBackgrounImg"] boolValue] == YES) {
-        [user setBool:NO forKey:@"ChangeBackgrounImg"];
+    if ([AppManager defualtManager].changeBackgroundImg == YES) {
+        [AppManager defualtManager].changeBackgroundImg = NO;
         NSString *bgImgName = [user objectForKey:@"BackgroundImg"];
         _bgImgView.image = [UIImage imageNamed:bgImgName];
     }
     if ([AppManager defualtManager].addSubjectFlag) {
         [AppManager defualtManager].addSubjectFlag = NO;
-        [subjectTV reloadData];
+        [_subjectTV reloadData];
+    }
+    if ([AppManager defualtManager].changeSchoolName == YES) {
+        [AppManager defualtManager].changeSchoolName = NO;
+        NSString *name = [user objectForKey:@"SchoolName"];
+        _schoolNameL.text = name;
+        _schoolLogoImgV.image = [UIImage imageNamed:name];
+    }
+    if ([AppManager defualtManager].changeUserAvatar == YES) {
+        [AppManager defualtManager].changeUserAvatar = NO;
+        NSData *imgData = [user objectForKey:@"UserAvatar"];
+        _iconView.image = [UIImage imageWithData:imgData];
+    }
+    if ([AppManager defualtManager].changeNickname == YES) {
+        [AppManager defualtManager].changeNickname = NO;
+        _nicknameL.text = [user objectForKey:@"Nickname"];
     }
 }
 
 - (void)setupNavigationBar {
     UIButton *moreBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
     [moreBtn setImage:[UIImage imageNamed:@"添加"] forState:UIControlStateNormal];
-    [moreBtn addTarget:self action:@selector(settingBarBtnAction:) forControlEvents:(UIControlEventTouchUpInside)];
+    [moreBtn addTarget:self action:@selector(addSubjectAction:) forControlEvents:(UIControlEventTouchUpInside)];
     UIBarButtonItem *moreBarBtn = [[UIBarButtonItem alloc]initWithCustomView:moreBtn];
     self.navigationItem.rightBarButtonItem = moreBarBtn;
     
@@ -55,11 +88,12 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:17.0 weight:UIFontWeightBold]}];
 }
 
-- (void)settingBarBtnAction:(UIBarButtonItem *)sender {
+- (IBAction)settingAction:(UIButton *)sender {
     SettingViewController *settingVC = [[SettingViewController alloc]init];
     [self.navigationController pushViewController:settingVC animated:YES];
 }
 
+/*
 - (void)setupView {
 //    self.view.backgroundColor = [UIColor whiteColor];
     
@@ -99,10 +133,10 @@
         
     CGFloat height = WD_TopHeight + 100;
     // table view
-    subjectTV = [[SubjectTableView alloc]initWithFrame:CGRectMake(0, height, CGRectGetWidth(self.view.frame), self.view.frame.size.height - height - 64) style:(UITableViewStyleGrouped)];
-    subjectTV.mainVC = self;
-    subjectTV.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:subjectTV];
+    _subjectTV = [[SubjectTableView alloc]initWithFrame:CGRectMake(0, height, CGRectGetWidth(self.view.frame), self.view.frame.size.height - height - 64) style:(UITableViewStyleGrouped)];
+    _subjectTV.mainVC = self;
+    _subjectTV.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_subjectTV];
     
     UIButton *addSubjectBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(subjectTV.frame), CGRectGetWidth(self.view.frame), self.view.frame.size.height - CGRectGetMaxY(subjectTV.frame))];
     addSubjectBtn.backgroundColor = [UIColor whiteColor];
@@ -111,6 +145,7 @@
     [addSubjectBtn addTarget:self action:@selector(addSubjectAction:) forControlEvents:(UIControlEventTouchUpInside)];
     [self.view addSubview:addSubjectBtn];
 }
+ */
 
 - (void)addSubjectAction:(UIButton *)sender {
     NewSubjectViewController *newSubjectVC = [[NewSubjectViewController alloc]init];

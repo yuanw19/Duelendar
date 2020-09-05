@@ -11,17 +11,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Icon" id="gTV-IL-0wX" customClass="IconCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="139" height="115"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="139" height="115"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JFA-c9-vUz">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <rect key="frame" x="5" y="5" width="129" height="105"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="select－big" translatesAutoresizingMaskIntoConstraints="NO" id="YuN-mg-qof">
-                        <rect key="frame" x="18" y="17" width="22" height="23"/>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="select－big" translatesAutoresizingMaskIntoConstraints="NO" id="YuN-mg-qof">
+                        <rect key="frame" x="107" y="82" width="22" height="23"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="22" id="eIt-xm-wDT"/>
                             <constraint firstAttribute="height" constant="23" id="siq-iG-xSM"/>
@@ -31,18 +31,19 @@
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="YuN-mg-qof" secondAttribute="trailing" constant="10" id="5gD-cR-6r2"/>
-                <constraint firstAttribute="trailing" secondItem="JFA-c9-vUz" secondAttribute="trailing" id="7ok-sa-9yp"/>
-                <constraint firstItem="JFA-c9-vUz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cWD-Og-kUN"/>
-                <constraint firstItem="JFA-c9-vUz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hA8-BE-I9N"/>
+                <constraint firstAttribute="trailing" secondItem="JFA-c9-vUz" secondAttribute="trailing" constant="5" id="7ok-sa-9yp"/>
+                <constraint firstItem="JFA-c9-vUz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="cWD-Og-kUN"/>
+                <constraint firstItem="JFA-c9-vUz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="hA8-BE-I9N"/>
                 <constraint firstAttribute="bottom" secondItem="YuN-mg-qof" secondAttribute="bottom" constant="10" id="kqx-FD-aEr"/>
-                <constraint firstAttribute="bottom" secondItem="JFA-c9-vUz" secondAttribute="bottom" id="xsn-TH-i2G"/>
+                <constraint firstAttribute="bottom" secondItem="JFA-c9-vUz" secondAttribute="bottom" constant="5" id="xsn-TH-i2G"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="139" height="115"/>
             <connections>
                 <outlet property="iconView" destination="JFA-c9-vUz" id="PFm-uh-APq"/>
                 <outlet property="selectState" destination="YuN-mg-qof" id="AVm-bt-3eX"/>
             </connections>
-            <point key="canvasLocation" x="139" y="94"/>
+            <point key="canvasLocation" x="122.46376811594205" y="36.495535714285715"/>
         </collectionViewCell>
     </objects>
     <resources>

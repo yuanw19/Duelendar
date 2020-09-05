@@ -11,8 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SubjectTVCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIView *iconBgView;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImgView;
 @property (weak, nonatomic) IBOutlet UILabel *subjectNameL;
+@property (weak, nonatomic) IBOutlet UILabel *detailL;
 
 @end
 

@@ -30,6 +30,14 @@
     return self;
 }
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.delegate = self;
+    self.dataSource = self;
+    self.backgroundColor = [UIColor clearColor];
+    [self registerNib:[UINib nibWithNibName:@"SubjectTVCell" bundle:nil] forCellReuseIdentifier:@"Subject"];
+}
+
 #pragma mark - tableView data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -43,6 +51,7 @@
     SubjectTVCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Subject" forIndexPath:indexPath];
     NSDictionary *dict = [AppManager defualtManager].allSubjectInfo[indexPath.row];
     cell.iconImgView.image = [UIImage imageWithData:dict[@"icon"]];
+    cell.iconBgView.backgroundColor = [AppManager defualtManager].colorArr[[dict[@"iconUndertone"] intValue]];
     cell.subjectNameL.text = dict[@"name"];
     return cell;
 }
@@ -66,7 +75,7 @@
 
 // UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
+    return 80;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -74,6 +83,7 @@
     NSDictionary *dict = [AppManager defualtManager].allSubjectInfo[indexPath.row];
     MissionViewController *missionVC = [[MissionViewController alloc]init];
     missionVC.subjectName = dict[@"name"];
+    missionVC.subjectInfo = dict;
     [self.mainVC.navigationController pushViewController:missionVC animated:YES];
 }
 

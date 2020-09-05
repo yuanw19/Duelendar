@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MissionViewController : UIViewController
 @property (nonatomic, strong) NSString *subjectName;
+@property (nonatomic, strong) NSDictionary *subjectInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END

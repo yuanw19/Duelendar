@@ -21,9 +21,9 @@ static const NSInteger itemSpace = 4;
     self.sectionInset = UIEdgeInsetsMake(4, 4, 4, 4);
     CGFloat width = self.collectionView.frame.size.width;
     CGFloat itemWidth = (width - (itemSpace*(column+1)))/column;
-    self.itemSize = CGSizeMake(itemWidth, itemWidth);
+    self.itemSize = CGSizeMake(itemWidth, itemWidth*16/9);
     self.scrollDirection = UICollectionViewScrollDirectionVertical;
-//    self.headerReferenceSize = CGSizeMake(self.itemSize.width, 20);
-    self.headerReferenceSize = CGSizeZero;
+    self.headerReferenceSize = CGSizeMake(self.itemSize.width, 20);
+//    self.headerReferenceSize = CGSizeZero;
 }
 @end

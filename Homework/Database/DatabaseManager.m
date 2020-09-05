@@ -106,7 +106,7 @@ static id _instace;
 
 - (BOOL)createPathTable:(NSString *)table WithKey:(NSDictionary *)keyTypes {
     __block BOOL ret = YES;
-    NSMutableString *sql = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"create table if not exists %@ (",table]];
+    NSMutableString *sql = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"create table if not exists %@ (id integer PRIMARY KEY AUTOINCREMENT,",table]];
     NSArray *keys = [keyTypes allKeys];
     for (NSInteger i = 0; i < keys.count; i++) {
         switch ([[keyTypes valueForKey:keys[i]] integerValue]) {

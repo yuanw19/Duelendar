@@ -12,22 +12,50 @@
 
 @interface MissionViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *missionTableView;
-@property (weak, nonatomic) IBOutlet UIButton *addMissionButton;
-@property (nonatomic,strong) NSMutableArray *missionArr;
+@property (nonatomic, strong) NSMutableArray *missionArr;
+@property (weak, nonatomic) IBOutlet UIView *iconBgView;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImgView;
+@property (weak, nonatomic) IBOutlet UIButton *addMissionBtn;
+@property (weak, nonatomic) IBOutlet UIButton *incompleteBtn;
+@property (weak, nonatomic) IBOutlet UIButton *completedBtn;
 
 @end
 
 @implementation MissionViewController
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.isMovingToParentViewController == NO) {
+        if ([AppManager defualtManager].addNewMission == YES) {
+            [AppManager defualtManager].addNewMission = NO;
+            [self queryDataFromDatabase];
+            [_missionTableView reloadData];
+        }
+    }
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = self.subjectName;
+//    _iconImgView.image = []
+    self.iconImgView.image = [UIImage imageWithData:_subjectInfo[@"icon"]];
+    self.iconBgView.backgroundColor = [AppManager defualtManager].colorArr[[_subjectInfo[@"iconUndertone"] intValue]];
+    
     // Do any additional setup after loading the view from its nib.
     self.missionTableView.delegate = self;
     self.missionTableView.dataSource = self;
     [self.missionTableView registerNib:[UINib nibWithNibName:@"MissionTableViewCell" bundle:nil] forCellReuseIdentifier:@"MissionCell"];
-    NSDictionary *tableKeys = @{@"subject":@0, @"name": @0, @"deadline": @3, @"remindDate": @3, @"remark": @0, @"state": @4};
 
-    _missionArr = [[AppManager defualtManager].dbManager selectInTable:@"Mission" WithKey:tableKeys whereCondition:@{@"subject":self.subjectName}];
+    _iconBgView.layer.masksToBounds = YES;
+    _iconBgView.layer.cornerRadius = 10;
+    _addMissionBtn.layer.masksToBounds = YES;
+    _addMissionBtn.layer.cornerRadius = 10;
+    _incompleteBtn.selected = YES;
+    [self queryDataFromDatabase];
+}
+
+- (void)queryDataFromDatabase {
+    NSDictionary *tableKeys = @{@"id":@1, @"subject":@0, @"name": @0, @"deadline": @3, @"remindDate": @3, @"createDate":@3 ,@"remark": @0, @"state": @4};
+    _missionArr = [[AppManager defualtManager].dbManager selectInTable:@"Mission" WithKey:tableKeys whereCondition:@{@"subject":self.subjectName, @"state": @(_completedBtn.selected)}];
 }
 
 #pragma mark - tableView data source
@@ -42,21 +70,31 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MissionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MissionCell" forIndexPath:indexPath];
     NSDictionary *dict = _missionArr[indexPath.row];
+    cell.nameL.text = dict[@"name"];
+    cell.nameL.textColor = _completedBtn.selected ? RGB(133, 204, 255, 1) : RGB(255, 0, 73, 1);
+    cell.remarkL.text = [NSString stringWithFormat:@"备注:%@",dict[@"remark"]];
+
     NSDate *date = dict[@"deadline"];
     NSInteger timeInterval = [date timeIntervalSinceDate:[NSDate date]] / 60;
-    NSString *dateStr = timeInterval < 0 ? @"过时":@"还剩";
+    cell.timeStateL.text = timeInterval < 0 ? @"过时":@"距离截止还有";
     timeInterval = labs(timeInterval);
+    NSString *timeStr, *unitStr;
     if (timeInterval > 1440) {
-        dateStr = [NSString stringWithFormat:@"%@%ld天%ld时%ld分",dateStr, timeInterval/1440, timeInterval%1440/60,timeInterval%60];
+        unitStr = @"天";
+        timeStr = [NSString stringWithFormat:@"%ld", timeInterval/1440];
     }
     else if (timeInterval > 60) {
-        dateStr = [NSString stringWithFormat:@"%@%ld时%ld分",dateStr, timeInterval/60,timeInterval%60];
+        unitStr = @"时";
+        timeStr = [NSString stringWithFormat:@"%ld", timeInterval/60];
     }
     else {
-        dateStr = [NSString stringWithFormat:@"%@%ld分",dateStr, timeInterval%60];
+        unitStr = @"分";
+        timeStr = [NSString stringWithFormat:@"%ld", timeInterval%60];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@:%@", dict[@"name"], dateStr];
+    cell.unitL.text = unitStr;
+    cell.dayL.text = timeStr;
+    cell.dayL.backgroundColor = _completedBtn.selected ? RGB(44, 112, 255, 1) : RGB(255, 0, 73, 1);
     return cell;
 }
 
@@ -79,31 +117,51 @@
 
 // UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
+    return 80;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"indexPath:%@",indexPath);
+    MissionDetailViewController *missionDetailVC = [[MissionDetailViewController alloc]init];
+    missionDetailVC.subjectName = self.subjectName;
+    missionDetailVC.showState = _completedBtn.selected ? ShowState_view : ShowState_edit;
+    missionDetailVC.missionInfo = _missionArr[indexPath.row];
+    [self.navigationController pushViewController:missionDetailVC animated:YES];
 }
 
 // edit
 //先要设Cell可编辑
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
+
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     // AVAILABLE AT iOS 8.0
     __weak typeof(self) weakSelf = self;
-    UITableViewRowAction *editRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:LOC(@"已完成") handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-        weakSelf.missionTableView.editing = NO;
-    }];
-    editRowAction.backgroundColor = [UIColor colorWithRed:0 green:124/255.0 blue:223/255.0 alpha:1];
+    
     UITableViewRowAction *deleteRoWAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:LOC(@"删除") handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-
+        NSDictionary *dict = weakSelf.missionArr[indexPath.row];
+        BOOL ret = [[AppManager defualtManager].dbManager deleteInTable:@"Mission" WithKey:@{@"id": dict[@"id"]}];
+        if (ret) {
+            [weakSelf.missionArr removeObjectAtIndex:indexPath.row];
+            [weakSelf.missionTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:(UITableViewRowAnimationLeft)];
+        }
         weakSelf.missionTableView.editing = NO;
     }];
-    return @[deleteRoWAction, editRowAction];
+    if (_incompleteBtn.selected) {
+        UITableViewRowAction *editRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:LOC(@"已完成") handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+            NSDictionary *dict = weakSelf.missionArr[indexPath.row];
+            BOOL ret = [[AppManager defualtManager].dbManager updateInTable:@"Mission" WithKey:@{@"state": @(YES)} whereCondition:@{@"id": dict[@"id"]}];
+            if (ret) {
+                [weakSelf.missionArr removeObjectAtIndex:indexPath.row];
+                [weakSelf.missionTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:(UITableViewRowAnimationLeft)];
+            }
+            weakSelf.missionTableView.editing = NO;
+        }];
+        editRowAction.backgroundColor = [UIColor colorWithRed:0 green:124/255.0 blue:223/255.0 alpha:1];
+        return @[deleteRoWAction, editRowAction];
+    }
+    return @[deleteRoWAction];
     
 }
 
@@ -118,8 +176,22 @@
     [self.navigationController pushViewController:missionDetailVC animated:YES];
 }
 
-- (void)dealloc {
-    NSLog(@"%s",__func__);
+- (IBAction)incompleteAction:(UIButton *)sender {
+    if (_incompleteBtn.selected == NO) {
+        _incompleteBtn.selected = YES;
+        _completedBtn.selected = NO;
+        [self queryDataFromDatabase];
+        [_missionTableView reloadData];
+    }
+}
+
+- (IBAction)completedAction:(UIButton *)sender {
+    if (_completedBtn.selected == NO) {
+        _completedBtn.selected = YES;
+        _incompleteBtn.selected = NO;
+        [self queryDataFromDatabase];
+        [_missionTableView reloadData];
+    }
 }
 
 /*
