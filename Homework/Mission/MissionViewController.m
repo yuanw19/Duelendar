@@ -75,7 +75,17 @@
     cell.remarkL.text = [NSString stringWithFormat:@"备注:%@",dict[@"remark"]];
 
     NSDate *date = dict[@"deadline"];
-    NSInteger timeInterval = [date timeIntervalSinceDate:[NSDate date]] / 60;
+    NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+    NSArray *timeZoneInfo = [userDef objectForKey:@"TimeZone"];
+    NSTimeZone *timeZone;
+    if (timeZoneInfo.count > 1) {
+        timeZone = [NSTimeZone timeZoneWithName:timeZoneInfo[1]];
+    }
+    else {
+        timeZone = [NSTimeZone localTimeZone];
+    }
+    NSDate *fixDate = [NSDate dateWithTimeInterval:-([timeZone secondsFromGMT]-[[NSTimeZone localTimeZone]secondsFromGMT]) sinceDate:date];
+    NSInteger timeInterval = [fixDate timeIntervalSinceDate:[NSDate date]] / 60;
     cell.timeStateL.text = timeInterval < 0 ? @"过时":@"距离截止还有";
     timeInterval = labs(timeInterval);
     NSString *timeStr, *unitStr;
@@ -161,8 +171,19 @@
         editRowAction.backgroundColor = [UIColor colorWithRed:0 green:124/255.0 blue:223/255.0 alpha:1];
         return @[deleteRoWAction, editRowAction];
     }
-    return @[deleteRoWAction];
-    
+    else {
+        UITableViewRowAction *editRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:LOC(@"未完成") handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+            NSDictionary *dict = weakSelf.missionArr[indexPath.row];
+            BOOL ret = [[AppManager defualtManager].dbManager updateInTable:@"Mission" WithKey:@{@"state": @(NO)} whereCondition:@{@"id": dict[@"id"]}];
+            if (ret) {
+                [weakSelf.missionArr removeObjectAtIndex:indexPath.row];
+                [weakSelf.missionTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:(UITableViewRowAnimationLeft)];
+            }
+            weakSelf.missionTableView.editing = NO;
+        }];
+        editRowAction.backgroundColor = [UIColor colorWithRed:0 green:124/255.0 blue:223/255.0 alpha:1];
+        return @[deleteRoWAction, editRowAction];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

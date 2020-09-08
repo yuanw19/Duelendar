@@ -52,7 +52,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aw6-7O-xa4">
                     <rect key="frame" x="0.0" y="177.5" width="414" height="718.5"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="city01" translatesAutoresizingMaskIntoConstraints="NO" id="1eP-t4-9GO">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1eP-t4-9GO">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="718.5"/>
                         </imageView>
                     </subviews>
@@ -80,7 +80,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="anteater" translatesAutoresizingMaskIntoConstraints="NO" id="kIe-NW-RMJ">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kIe-NW-RMJ">
                     <rect key="frame" x="50" y="152.5" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="EtS-qz-BYC"/>
@@ -129,8 +129,6 @@
         </view>
     </objects>
     <resources>
-        <image name="anteater" width="415" height="257"/>
-        <image name="city01" width="1200" height="1800"/>
         <image name="img_default" width="56" height="56"/>
         <image name="确认创建底框" width="727.33331298828125" height="290.66665649414062"/>
         <image name="箭头" width="12" height="13.5"/>

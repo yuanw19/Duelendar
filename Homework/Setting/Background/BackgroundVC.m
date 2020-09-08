@@ -36,10 +36,10 @@
     [_collectionView registerNib:[UINib nibWithNibName:@"BackgoundCViewCell" bundle:nil] forCellWithReuseIdentifier:@"Background"];
     [_collectionView registerNib:[UINib nibWithNibName:@"CollectionHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"BackgroundHeader"];
     _backgroundDict = @{
-        @"City": @[@"city01",@"city02",@"city03",@"city04",@"city05"],
-        @"Nature":@[@"nature01",@"nature02",@"nature03",@"nature06",@"nature13",@"nature14",@"nature15"],
-        @"Pure":@[@"pure01",@"pure02",@"pure03",@"pure04"],
-        @"Scene":@[@"scene01",@"scene02",@"scene03",@"scene04",@"scene07"],
+        @"City": @[@"city02",@"city04",@"city05"],
+        @"Nature":@[@"nature02",@"nature03",@"nature06",@"nature13",@"nature14"],
+        @"Pure":@[@"pure03",@"pure04"],
+        @"Scene":@[@"scene01",@"scene03",@"scene04",@"scene07"],
         @"Star":@[@"star03",@"star05",@"star08",@"star11",@"star12"]};
 }
 

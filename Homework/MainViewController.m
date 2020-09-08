@@ -44,6 +44,22 @@
     _schoolNameL.text = name;
     _schoolLogoImgV.image = [UIImage imageNamed:name];
     _nicknameL.text = [userDef objectForKey:@"Nickname"];
+    
+    NSString *appVersion = [userDef objectForKey:@"AppVersion"];
+    NSString *curVersion = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"];
+    if ([appVersion isEqualToString:curVersion] == NO) {
+        [userDef setObject:curVersion forKey:@"AppVersion"];
+        __weak typeof(self) wself = self;
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"Duelendar" message:@"欢迎使用Duelendar,请前往设置界面,设置您的个人信息" preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+            SettingViewController *settingVC = [[SettingViewController alloc]init];
+            [wself.navigationController pushViewController:settingVC animated:YES];
+        }];
+        [alertC addAction:action];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [wself presentViewController:alertC animated:YES completion:nil];
+        });
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -150,6 +166,10 @@
 - (void)addSubjectAction:(UIButton *)sender {
     NewSubjectViewController *newSubjectVC = [[NewSubjectViewController alloc]init];
     [self.navigationController pushViewController:newSubjectVC animated:YES];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 /*

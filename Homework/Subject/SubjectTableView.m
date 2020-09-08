@@ -49,6 +49,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SubjectTVCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Subject" forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSDictionary *dict = [AppManager defualtManager].allSubjectInfo[indexPath.row];
     cell.iconImgView.image = [UIImage imageWithData:dict[@"icon"]];
     cell.iconBgView.backgroundColor = [AppManager defualtManager].colorArr[[dict[@"iconUndertone"] intValue]];

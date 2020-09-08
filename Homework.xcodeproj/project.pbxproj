@@ -606,8 +606,9 @@
 			baseConfigurationReference = C25032B638DA50ACE0E06A2F /* Pods-Homework.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 39MV8HNPFD;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = Z99XRA7C49;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Homework/PrefixHeader.pch";
 				INFOPLIST_FILE = Homework/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -615,8 +616,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ncy.Homework1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huyi.duelendar;
 				PRODUCT_NAME = Duelendar;
+				PROVISIONING_PROFILE_SPECIFIER = DuelendarDev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -626,8 +628,9 @@
 			baseConfigurationReference = A6E35958FB3FDA35DF461822 /* Pods-Homework.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FMXDNUUU3Y;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = Z99XRA7C49;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Homework/PrefixHeader.pch";
 				INFOPLIST_FILE = Homework/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -635,8 +638,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ncy.Homework1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huyi.duelendar;
 				PRODUCT_NAME = Duelendar;
+				PROVISIONING_PROFILE_SPECIFIER = DuelendarDis;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

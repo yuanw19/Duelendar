@@ -36,6 +36,7 @@
     
     _nameTF.borderStyle = UITextBorderStyleNone;
     _remarkTV.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _remarkTV.layer.borderWidth = 1;
     _remarkTV.layer.cornerRadius = 10.0;
     _nameBgView.layer.masksToBounds = YES;
     _nameBgView.layer.cornerRadius = 10;
@@ -125,13 +126,13 @@
     else {
         timeZone = [NSTimeZone localTimeZone];
     }
-    NSDate *fixDate = [NSDate dateWithTimeInterval:-[timeZone secondsFromGMT] sinceDate:_deadline];
+    NSDate *fixDate = [NSDate dateWithTimeInterval:-([timeZone secondsFromGMT]-[[NSTimeZone localTimeZone]secondsFromGMT]) sinceDate:_deadline];
     NSLog(@"%ld, 修正后的时间:%@",[timeZone secondsFromGMT], fixDate);
     _countDownTime = [_countDownPicker countDownDuration];
     _countDownTime += 24*3600*[_dayPickerView selectedRowInComponent:0];
     
     NSDate *createDate = [NSDate date];
-    NSDate *remindDate = [NSDate dateWithTimeInterval:_countDownTime sinceDate:_deadline];
+    NSDate *remindDate = [NSDate dateWithTimeInterval:-_countDownTime sinceDate:fixDate];
     NSDictionary *dict;
     BOOL ret;
     if (_showState == ShowState_create) {
