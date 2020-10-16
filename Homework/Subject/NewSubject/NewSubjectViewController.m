@@ -56,19 +56,19 @@
     NSString *msg = @"";
     if (!_subjectNameTF.text.length) {
         msg = @"请输入科学名称";
-    }
-    if ([[AppManager defualtManager]checkSubjectNameValid:_subjectNameTF.text] == NO) {
+    } else if ([[AppManager defualtManager]checkSubjectNameValid:_subjectNameTF.text] == NO) {
         msg = @"学科名称不能重复,请重新输入";
-    }
-    NSData *iconData = UIImagePNGRepresentation([UIImage imageNamed:_iconArr[_iconIndex]]);
-    BOOL ret = [[AppManager defualtManager]addNewSubject:@{@"name":_subjectNameTF.text, @"icon": iconData, @"iconUndertone": @(_undertoneTag - 100), @"createTime": [NSDate date]}];
-    if (ret) {
-        [self.navigationController popViewControllerAnimated:YES];
-
-        return;
     } else {
-        msg = nil;
+        NSData *iconData = UIImagePNGRepresentation([UIImage imageNamed:_iconArr[_iconIndex]]);
+        BOOL ret = [[AppManager defualtManager]addNewSubject:@{@"name":_subjectNameTF.text, @"icon": iconData, @"iconUndertone": @(_undertoneTag - 100), @"createTime": [NSDate date]}];
+        if (ret) {
+            [self.navigationController popViewControllerAnimated:YES];
+            return;
+        } else {
+            msg = @"无法保存该学科";
+        }
     }
+    
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"创建失败" message:msg preferredStyle:(UIAlertControllerStyleAlert)];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:nil];
     [alertC addAction:action];

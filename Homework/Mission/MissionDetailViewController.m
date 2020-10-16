@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[AppManager defualtManager]requestLocalNotificationAuthorization];
     
     // Do any additional setup after loading the view from its nib.
     NSDictionary *tableKeys = @{@"subject":@0, @"name": @0, @"deadline": @3, @"remindDate": @3, @"createDate":@3, @"remark": @0, @"state": @4};
@@ -117,29 +118,20 @@
         [self presentViewController:alertC animated:YES completion:nil];
         return;
     }
-    NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
-    NSArray *timeZoneInfo = [userDef objectForKey:@"TimeZone"];
-    NSTimeZone *timeZone;
-    if (timeZoneInfo.count > 1) {
-        timeZone = [NSTimeZone timeZoneWithName:timeZoneInfo[1]];
-    }
-    else {
-        timeZone = [NSTimeZone localTimeZone];
-    }
-    NSDate *fixDate = [NSDate dateWithTimeInterval:-([timeZone secondsFromGMT]-[[NSTimeZone localTimeZone]secondsFromGMT]) sinceDate:_deadline];
-    NSLog(@"%ld, 修正后的时间:%@",[timeZone secondsFromGMT], fixDate);
+    NSDate *createDate;
     _countDownTime = [_countDownPicker countDownDuration];
     _countDownTime += 24*3600*[_dayPickerView selectedRowInComponent:0];
-    
-    NSDate *createDate = [NSDate date];
-    NSDate *remindDate = [NSDate dateWithTimeInterval:-_countDownTime sinceDate:fixDate];
+    NSDate *remindDate = [NSDate dateWithTimeInterval:-_countDownTime sinceDate:_deadline];
+
     NSDictionary *dict;
     BOOL ret;
     if (_showState == ShowState_create) {
+        createDate = [NSDate date];
         dict = @{@"subject":self.subjectName, @"name": _nameTF.text, @"deadline": _deadline, @"remindDate": remindDate, @"createDate":createDate, @"remark": _remarkTV.text, @"state": @NO};
         ret = [[AppManager defualtManager].dbManager insertInTable:@"Mission" WithKey:dict];
     }
     else {
+        createDate = _missionInfo[@"createDate"];
         dict = @{@"subject":self.subjectName, @"name": _nameTF.text, @"deadline": _deadline, @"remindDate": remindDate, @"remark": _remarkTV.text};
         ret = [[AppManager defualtManager].dbManager updateInTable:@"Mission" WithKey:dict whereCondition:@{@"id": _missionInfo[@"id"]}];
     }
@@ -157,8 +149,18 @@
         else {
             info = [NSString stringWithFormat:@"%@ %d分",info, timeInterval];
         }
+        NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+        NSArray *timeZoneInfo = [userDef objectForKey:@"TimeZone"];
+        NSTimeZone *timeZone;
+        if (timeZoneInfo.count > 1) {
+            timeZone = [NSTimeZone timeZoneWithName:timeZoneInfo[1]];
+        }
+        else {
+            timeZone = [NSTimeZone localTimeZone];
+        }
+        NSDate *fixDate = [NSDate dateWithTimeInterval:NSTimeZone.localTimeZone.secondsFromGMT - timeZone.secondsFromGMT sinceDate:_deadline];
         
-        [[AppManager defualtManager]sendLocalNotification:[remindDate timeIntervalSinceNow] missionInfo:@{@"name": _nameTF.text, @"info": info, @"ID": [NSString stringWithFormat:@"%@-%ld",_nameTF.text,(NSInteger)[createDate timeIntervalSince1970]]}];
+        [[AppManager defualtManager]sendLocalNotification:[[NSDate dateWithTimeInterval:-_countDownTime sinceDate:fixDate] timeIntervalSinceNow] missionInfo:@{@"name": _nameTF.text, @"info": info, @"createDate": createDate} parentVC:self];
         // 设置本地通知
         [self.navigationController popViewControllerAnimated:YES];
     }
@@ -201,8 +203,14 @@
     
     UIDatePicker *datePicker = [[UIDatePicker alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(separator.frame), tmpFrame.size.width, tmpFrame.size.height-CGRectGetMaxY(separator.frame))];
     [datePicker setDatePickerMode:_isDeadlineDatePicker ? UIDatePickerModeDateAndTime: UIDatePickerModeCountDownTimer];
-    datePicker.backgroundColor = [UIColor whiteColor];
+    datePicker.backgroundColor = [UIColor yellowColor];
+    if (@available(iOS 13.4, *)) {
+        datePicker.preferredDatePickerStyle = UIDatePickerStyleWheels;
+    } else {
+        // Fallback on earlier versions
+    }
     [bgView addSubview:datePicker];
+    datePicker.center = CGPointMake(bgView.center.x, bgView.frame.size.height*.5 + separator.frame.origin.y*.5);
     _datePicker = datePicker;
 }
 

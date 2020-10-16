@@ -33,6 +33,7 @@
         }
     }
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = self.subjectName;
@@ -84,18 +85,18 @@
     else {
         timeZone = [NSTimeZone localTimeZone];
     }
-    NSDate *fixDate = [NSDate dateWithTimeInterval:-([timeZone secondsFromGMT]-[[NSTimeZone localTimeZone]secondsFromGMT]) sinceDate:date];
+    NSDate *fixDate = [NSDate dateWithTimeInterval:NSTimeZone.localTimeZone.secondsFromGMT - timeZone.secondsFromGMT sinceDate:date];
     NSInteger timeInterval = [fixDate timeIntervalSinceDate:[NSDate date]] / 60;
     cell.timeStateL.text = timeInterval < 0 ? @"过时":@"距离截止还有";
     timeInterval = labs(timeInterval);
     NSString *timeStr, *unitStr;
     if (timeInterval > 1440) {
         unitStr = @"天";
-        timeStr = [NSString stringWithFormat:@"%ld", timeInterval/1440];
+        timeStr = [NSString stringWithFormat:@"%.1f", timeInterval/1440.0];
     }
     else if (timeInterval > 60) {
         unitStr = @"时";
-        timeStr = [NSString stringWithFormat:@"%ld", timeInterval/60];
+        timeStr = [NSString stringWithFormat:@"%.1f", timeInterval/60.0];
     }
     else {
         unitStr = @"分";
@@ -153,6 +154,8 @@
         NSDictionary *dict = weakSelf.missionArr[indexPath.row];
         BOOL ret = [[AppManager defualtManager].dbManager deleteInTable:@"Mission" WithKey:@{@"id": dict[@"id"]}];
         if (ret) {
+            NSString *notificationID = [NSString stringWithFormat:@"%@-%ld",dict[@"name"],(NSInteger)[dict[@"createDate"] timeIntervalSince1970]];
+            [[AppManager defualtManager]cancelLocalNotificationWithID:notificationID];
             [weakSelf.missionArr removeObjectAtIndex:indexPath.row];
             [weakSelf.missionTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:(UITableViewRowAnimationLeft)];
         }
@@ -163,6 +166,8 @@
             NSDictionary *dict = weakSelf.missionArr[indexPath.row];
             BOOL ret = [[AppManager defualtManager].dbManager updateInTable:@"Mission" WithKey:@{@"state": @(YES)} whereCondition:@{@"id": dict[@"id"]}];
             if (ret) {
+                NSString *notificationID = [NSString stringWithFormat:@"%@-%ld",dict[@"name"],(NSInteger)[dict[@"createDate"] timeIntervalSince1970]];
+                [[AppManager defualtManager]cancelLocalNotificationWithID:notificationID];
                 [weakSelf.missionArr removeObjectAtIndex:indexPath.row];
                 [weakSelf.missionTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:(UITableViewRowAnimationLeft)];
             }
@@ -176,6 +181,32 @@
             NSDictionary *dict = weakSelf.missionArr[indexPath.row];
             BOOL ret = [[AppManager defualtManager].dbManager updateInTable:@"Mission" WithKey:@{@"state": @(NO)} whereCondition:@{@"id": dict[@"id"]}];
             if (ret) {
+                NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+                NSArray *timeZoneInfo = [userDef objectForKey:@"TimeZone"];
+                NSTimeZone *timeZone;
+                if (timeZoneInfo.count > 1) {
+                    timeZone = [NSTimeZone timeZoneWithName:timeZoneInfo[1]];
+                }
+                else {
+                    timeZone = [NSTimeZone localTimeZone];
+                }                
+                int timeInterval = [dict[@"deadline"] timeIntervalSinceDate:dict[@"remindDate"]] / 60;
+                if (timeInterval > 0) {
+                    NSString *info = @"距离作业提交还有";
+                    if (timeInterval > 1440) {
+                        info = [NSString stringWithFormat:@"%@%d天 %d时 %d分",info,timeInterval/1440,timeInterval/60, timeInterval%60];
+                    }
+                    else if (timeInterval > 60) {
+                        info = [NSString stringWithFormat:@"%@ %d时 %d分",info, timeInterval/60, timeInterval%60];
+                    }
+                    else {
+                        info = [NSString stringWithFormat:@"%@ %d分",info, timeInterval];
+                    }
+                    NSDate *fixDate = [NSDate dateWithTimeInterval:NSTimeZone.localTimeZone.secondsFromGMT - timeZone.secondsFromGMT sinceDate:dict[@"deadline"]];
+
+                    [[AppManager defualtManager]sendLocalNotification:[[NSDate dateWithTimeInterval:-timeInterval sinceDate:fixDate] timeIntervalSinceNow] missionInfo:@{@"name": dict[@"name"], @"info": info} parentVC:self];
+                }
+                
                 [weakSelf.missionArr removeObjectAtIndex:indexPath.row];
                 [weakSelf.missionTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:(UITableViewRowAnimationLeft)];
             }

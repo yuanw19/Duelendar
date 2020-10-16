@@ -26,7 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 UIColor * RGB (CGFloat r, CGFloat g, CGFloat b, CGFloat a);
 - (BOOL)addNewSubject:(NSDictionary *)info;
 - (BOOL)checkSubjectNameValid:(NSString *)name;
-- (void)sendLocalNotification:(NSInteger)timeInternal missionInfo:(NSDictionary *)info;
+- (void)requestLocalNotificationAuthorization;
+- (void)sendLocalNotification:(NSInteger)timeInternal missionInfo:(NSDictionary *)info parentVC:(UIViewController *)parentVC;
+- (void)cancelLocalNotificationWithID:(NSString *)notificationID;
 @end
 
 NS_ASSUME_NONNULL_END

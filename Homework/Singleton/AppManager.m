@@ -66,36 +66,47 @@ NSString * const TABLE_NAME = @"Subject";
     return valid;
 }
 
+- (void)requestLocalNotificationAuthorization {
+    if (@available(iOS 10.0, *)) {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        [center requestAuthorizationWithOptions:UNAuthorizationOptionBadge | UNAuthorizationOptionAlert | UNAuthorizationOptionSound completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        }];
+    } else {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    }
+}
+
 // Notification
-- (void)sendLocalNotification:(NSInteger)timeInternal missionInfo:(NSDictionary *)info {
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    
+- (void)sendLocalNotification:(NSInteger)timeInternal missionInfo:(NSDictionary *)info parentVC:(UIViewController *)parentVC {
+    if (timeInternal < 0) {
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"截止时间设置异常" message:@"您所选的截止日期是过去时间，我们将无法按时提醒您" preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:nil];
+        [alertC addAction:action];
+        [parentVC presentViewController:alertC animated:YES completion:nil];
+        return;
+    }
+    NSString *notificationID = [NSString stringWithFormat:@"%@-%ld",info[@"name"],(NSInteger)[info[@"createDate"] timeIntervalSince1970]];
+    [self cancelLocalNotificationWithID:notificationID];
+        
     NSString *title = info[@"name"];
     NSString *subtitle = info[@"info"];
-    NSDictionary *userInfo = @{@"ID":info[@"ID"]};
+    NSDictionary *userInfo = @{@"ID":notificationID};
     
     if (@available(iOS 10.0, *)) {
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-        [center requestAuthorizationWithOptions:UNAuthorizationOptionSound completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        [center requestAuthorizationWithOptions:UNAuthorizationOptionBadge | UNAuthorizationOptionAlert | UNAuthorizationOptionSound completionHandler:^(BOOL granted, NSError * _Nullable error) {
             if(granted) {
                 // 1.创建通知内容
                 UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
                 content.sound = [UNNotificationSound defaultSound];
                 content.title = title;
-                content.subtitle = subtitle;
-//                content.body = body;
-//                content.badge = @(badge);
-    
+                content.subtitle = subtitle;    
                 content.userInfo = userInfo;
                 
                 // 3.触发模式
                 UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:timeInternal repeats:NO];
                 
-                NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
-                int value = [[userDef objectForKey:@"notification"] intValue];
-                [userDef setInteger:++value forKey:@"notification"];
-                NSString *notificationID = [NSString stringWithFormat:@"notification%d",value];
                 // 4.设置UNNotificationRequest
                 UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:notificationID content:content trigger:trigger];
                 
@@ -105,13 +116,14 @@ NSString * const TABLE_NAME = @"Subject";
                 }];
             }
         }];
-    } else {
+    }
+    else {
         
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];
         
         // 1.设置触发时间（如果要立即触发，无需设置）
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
-        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
+        localNotification.fireDate = info[@"remindDate"];
         
         // 2.设置通知标题
         localNotification.alertBody = title;
@@ -120,7 +132,7 @@ NSString * const TABLE_NAME = @"Subject";
         localNotification.alertAction = @"查看";
         
         // 4.设置提醒的声音
-        localNotification.soundName = @"sound01.wav";// UILocalNotificationDefaultSoundName;
+        localNotification.soundName = UILocalNotificationDefaultSoundName;
         
         // 5.设置通知的 传递的userInfo
         localNotification.userInfo = userInfo;
@@ -155,6 +167,19 @@ NSString * const TABLE_NAME = @"Subject";
 UIColor * RGB (CGFloat r, CGFloat g, CGFloat b, CGFloat a) {
     UIColor *color = [UIColor colorWithRed:r/255.0 green:g/255 blue:b/255 alpha:a];
     return color;
+}
+
+- (void)cancelLocalNotificationWithID:(NSString *)notificationID {
+    NSArray *localNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    for (UILocalNotification *loc in localNotifications) {
+        if ([loc.userInfo[@"ID"] isEqualToString:notificationID]) {
+            if (@available(iOS 10.0, *)) {
+                [[UNUserNotificationCenter currentNotificationCenter] removePendingNotificationRequestsWithIdentifiers:@[loc.userInfo[@"ID"]]];
+            } else {
+                [[UIApplication sharedApplication] cancelLocalNotification:loc];
+            }
+        }
+    }
 }
 
 @end

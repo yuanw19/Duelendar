@@ -45,6 +45,12 @@
     _schoolLogoImgV.image = [UIImage imageNamed:name];
     _nicknameL.text = [userDef objectForKey:@"Nickname"];
     
+    NSString *bgImgName = [userDef objectForKey:@"BackgroundImg"];
+    if (!bgImgName) {
+        bgImgName = @"city01";
+    }
+    _bgImgView.image = [UIImage imageNamed:bgImgName];
+    
     NSString *appVersion = [userDef objectForKey:@"AppVersion"];
     NSString *curVersion = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"];
     if ([appVersion isEqualToString:curVersion] == NO) {
