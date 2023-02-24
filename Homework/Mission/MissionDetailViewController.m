@@ -203,7 +203,7 @@
     
     UIDatePicker *datePicker = [[UIDatePicker alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(separator.frame), tmpFrame.size.width, tmpFrame.size.height-CGRectGetMaxY(separator.frame))];
     [datePicker setDatePickerMode:_isDeadlineDatePicker ? UIDatePickerModeDateAndTime: UIDatePickerModeCountDownTimer];
-    datePicker.backgroundColor = [UIColor yellowColor];
+    datePicker.backgroundColor = [UIColor whiteColor];
     if (@available(iOS 13.4, *)) {
         datePicker.preferredDatePickerStyle = UIDatePickerStyleWheels;
     } else {

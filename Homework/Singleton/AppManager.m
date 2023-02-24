@@ -77,13 +77,13 @@ NSString * const TABLE_NAME = @"Subject";
     }
 }
 
-// Notification
 - (void)sendLocalNotification:(NSInteger)timeInternal missionInfo:(NSDictionary *)info parentVC:(UIViewController *)parentVC {
+    [self sendLocalNotification:timeInternal missionInfo:info parentVC:parentVC completeHandle:nil];
+}
+
+// Notification
+- (void)sendLocalNotification:(NSInteger)timeInternal missionInfo:(NSDictionary *)info parentVC:(UIViewController *)parentVC completeHandle:(void (^)(UIAlertAction *action))handler {
     if (timeInternal < 0) {
-        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"截止时间设置异常" message:@"您所选的截止日期是过去时间，我们将无法按时提醒您" preferredStyle:(UIAlertControllerStyleAlert)];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:nil];
-        [alertC addAction:action];
-        [parentVC presentViewController:alertC animated:YES completion:nil];
         return;
     }
     NSString *notificationID = [NSString stringWithFormat:@"%@-%ld",info[@"name"],(NSInteger)[info[@"createDate"] timeIntervalSince1970]];

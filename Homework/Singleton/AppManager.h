@@ -28,6 +28,7 @@ UIColor * RGB (CGFloat r, CGFloat g, CGFloat b, CGFloat a);
 - (BOOL)checkSubjectNameValid:(NSString *)name;
 - (void)requestLocalNotificationAuthorization;
 - (void)sendLocalNotification:(NSInteger)timeInternal missionInfo:(NSDictionary *)info parentVC:(UIViewController *)parentVC;
+- (void)sendLocalNotification:(NSInteger)timeInternal missionInfo:(NSDictionary *)info parentVC:(UIViewController *)parentVC completeHandle:(void (^)(UIAlertAction *action))handler;
 - (void)cancelLocalNotificationWithID:(NSString *)notificationID;
 @end
 
