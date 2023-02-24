@@ -1,5 +1,5 @@
 # Duelendar
-![App Demo](./github/demo.gif)
+![App Demo](./Homework/demo.gif)
 When the pandemic hits globally, I and my high school friend
 developed an app to help
 international students who go back
