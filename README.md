@@ -9,4 +9,4 @@ to their home countries like me
 automatically convert homework
 due dates to their timezone.
 This is the ios version app,
-checkout the anroid version in another repo.
+checkout the android version in another repo.
